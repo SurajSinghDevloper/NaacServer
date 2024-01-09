@@ -1,0 +1,14 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo "Packaging JAR files..."
+      - mvn clean package
+  post_build:
+    commands:
+      - echo "Build complete."
+artifacts:
+  files:
+    - target/naac-Server.jar
+  discard-paths: yes
+
