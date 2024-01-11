@@ -52,22 +52,47 @@ public class FileUpload {
     @Autowired
     private AmazonS3 s3Client;
 	
-	public String uploadFile(MultipartFile pdfFile) {    
-	    if (!pdfFile.isEmpty()) {           	            
-	            String originalFileName = pdfFile.getOriginalFilename();
-	            String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-	            String uniqueFileName = UUID.randomUUID().toString() + fileExtension;	            
-	    	String key = "Naac/"+ uniqueFileName;
-	    	boolean s3 = uploadToS3(pdfFile,key);
-	    	if(s3==true) {
-	    		 return uniqueFileName;
-	    	}else {
-	    		return "File upload failed!";
-	    	}
-	    } else {
-	        return "File is empty!";
-	    }
-	}
+//	public String uploadFile(MultipartFile pdfFile) {    
+//	    if (!pdfFile.isEmpty()) {           	            
+//	            String originalFileName = pdfFile.getOriginalFilename();
+//	            String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+//	            String uniqueFileName = UUID.randomUUID().toString() + fileExtension;	            
+//	    	String key = "Naac/"+ uniqueFileName;
+//	    	boolean s3 = uploadToS3(pdfFile,key);
+//	    	if(s3==true) {
+//	    		 return uniqueFileName;
+//	    	}else {
+//	    		return "File upload failed!";
+//	    	}
+//	    } else {
+//	        return "File is empty!";
+//	    }
+//	}
+    public String uploadFile(MultipartFile pdfFile) {
+        long maxFileSize = 10 * 1024 * 1024; // 5MB in bytes
+
+        if (!pdfFile.isEmpty()) {
+            if (pdfFile.getSize() > maxFileSize) {
+                return "File size exceeds the maximum allowed (5MB)!";
+            }
+
+            String originalFileName = pdfFile.getOriginalFilename();
+            String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+            String uniqueFileName = UUID.randomUUID().toString() + fileExtension;
+
+            String key = "Naac/" + uniqueFileName;
+            boolean s3 = uploadToS3(pdfFile, key);
+
+            if (s3) {
+                return uniqueFileName;
+            } else {
+                return "File upload failed!";
+            }
+        } else {
+            return "File is empty!";
+        }
+    }
+
 	
 	
 	public String waitUntilDocumentNameIsSet(Long AffiliatingUniversityId) {
