@@ -76,7 +76,7 @@ public interface SSRService {
 
 	public ExtendedProfileSSR findExtendedSSrById(long extendedSSrId);
 
-	public boolean saveDocumentOfProgramInstructional(long SsrId, MultipartFile pdf);
+//	public boolean saveDocumentOfCampusApprovalDoc(long SsrId, MultipartFile pdf);
 
 	public boolean saveDocumentOfStudentInstructional(long SsrId, MultipartFile pdf);
 

@@ -1,25 +1,33 @@
 package com.nac.configuration;
 
 import com.nac.model.NewCollegeRegistration;
+import com.nac.model.StudentFeedback;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class LoginResponse {
 	private String token;
 	private NewCollegeRegistration college;
+	private StudentFeedback student;
+	private Object user;
 	
-//	private List<PrepareIIQA> latestPrepareIIQAList;
-//	private PrepareIIQA iiqa;
+    public LoginResponse(String token, Object user) {
+        this.token = token;
+        this.user = user;
+    }
+
 
 	public LoginResponse(String token, NewCollegeRegistration college) {
 		this.token = token;
 		this.college = college;
 
 	}
+	
+	public LoginResponse(String token, StudentFeedback student) {
+		this.token = token;
+		this.student = student;
 
-//	public LoginResponse(String token, NewCollegeRegistration college, PrepareIIQA iiqa) {
-//		this.token = token;
-//		this.college = college;
-//		this.iiqa = iiqa;
-//	}
+	}
 
 	public String getToken() {
 		return token;
@@ -37,20 +45,24 @@ public class LoginResponse {
 		this.college = college;
 	}
 
-//	public List<PrepareIIQA> getLatestPrepareIIQAList() {
-//		return latestPrepareIIQAList;
-//	}
-//
-//	public void setLatestPrepareIIQAList(List<PrepareIIQA> latestPrepareIIQAList) {
-//		this.latestPrepareIIQAList = latestPrepareIIQAList;
-//	}
+	public StudentFeedback getStudent() {
+		return student;
+	}
 
-//	public PrepareIIQA getIiqa() {
-//		return iiqa;
-//	}
-//
-//	public void setIiqa(PrepareIIQA iiqa) {
-//		this.iiqa = iiqa;
-//	}
+	public void setStudent(StudentFeedback student) {
+		this.student = student;
+	}
+
+
+	public Object getUser() {
+		return user;
+	}
+
+
+	public void setUser(Object user) {
+		this.user = user;
+	}
+
+	
 
 }

@@ -16,6 +16,7 @@ import com.nac.model.SSR.Staff;
 import com.nac.model.SSR.StaffDetails;
 import com.nac.model.SSR.StudentDetailsCurrentYear;
 import com.nac.model.SSR.StudentDetailsLastFourYears;
+import com.nac.model.IIQA.UniversityRecoginsed;
 import com.nac.model.SSR.CriteriaII;
 import com.nac.model.SSR.CriteriaIII;
 import com.nac.model.SSR.CriteriaIV;
@@ -462,7 +463,7 @@ public class SSRServiceImpl implements SSRService {
 	boolean isExcludedField(String fieldName) {
 		// List of field names to exclude from updates
 		Set<String> excludedFields = new HashSet<>(
-				Arrays.asList("CriteriaII_Id","CriteriaVII_Id", "CriteriaIII_Id", "ssrID", "collegeID", "qifId"));
+				Arrays.asList("CriteriaII_Id", "CriteriaVII_Id", "CriteriaIII_Id", "ssrID", "collegeID", "qifId"));
 		return excludedFields.stream().anyMatch(excluded -> excluded.equalsIgnoreCase(fieldName));
 	}
 
@@ -476,32 +477,20 @@ public class SSRServiceImpl implements SSRService {
 	}
 
 	@Override
-	public boolean saveDocumentOfProgramInstructional(long SsrId, MultipartFile pdf) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		if (extendedSsr != null) {
-			String fileName = fileService.uploadFile(pdf);
-			extendedSsr.setProgramCourseInstDataDoc(fileName);
-			extendedSSRRepo.save(extendedSsr);
-			return true;
-		}
-		return false;
-	}
-
-	@Override
 	public boolean deleteDocumentOfProgramInstructional(long SsrId) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		if (extendedSsr != null) {
-			String docName = extendedSsr.getProgramCourseInstDataDoc();
-			boolean success = fileService.deleteFileByName(docName);
-			if (success) {
-				extendedSsr.setProgramCourseInstDataDoc("");
-				extendedSSRRepo.save(extendedSsr);
-				return true;
-			} else {
-				return false;
-			}
-
-		}
+		// ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
+		// if (extendedSsr != null) {
+		// String docName = extendedSsr.getProgramCourseInstDataDoc();
+		// boolean success = fileService.deleteFileByName(docName);
+		// if (success) {
+		// extendedSsr.setProgramCourseInstDataDoc("");
+		// extendedSSRRepo.save(extendedSsr);
+		// return true;
+		// } else {
+		// return false;
+		// }
+		//
+		// }
 		return false;
 
 	}
@@ -539,64 +528,64 @@ public class SSRServiceImpl implements SSRService {
 
 	@Override
 	public boolean saveDocumentOfStuAppearedInstructional(long SsrId, MultipartFile pdf) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		if (extendedSsr != null) {
-			String fileName = fileService.uploadFile(pdf);
-			extendedSsr.setStuAppearedInstDataDoc(fileName);
-			extendedSSRRepo.save(extendedSsr);
-			return true;
-		}
+		// ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
+		// if (extendedSsr != null) {
+		// String fileName = fileService.uploadFile(pdf);
+		// extendedSsr.setStuAppearedInstDataDoc(fileName);
+		// extendedSSRRepo.save(extendedSsr);
+		// return true;
+		// }
 		return false;
 	}
 
 	@Override
 	public boolean deleteDocumentOfStuAppearedInstructional(long SsrId) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		if (extendedSsr != null) {
-			String docName = extendedSsr.getStuAppearedInstDataDoc();
-			boolean success = fileService.deleteFileByName(docName);
-			if (success) {
-				extendedSsr.setStuAppearedInstDataDoc("");
-				extendedSSRRepo.save(extendedSsr);
-				return true;
-			} else {
-				return false;
-			}
-
-		}
+		// ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
+		// if (extendedSsr != null) {
+		// String docName = extendedSsr.getStuAppearedInstDataDoc();
+		// boolean success = fileService.deleteFileByName(docName);
+		// if (success) {
+		// extendedSsr.setStuAppearedInstDataDoc("");
+		// extendedSSRRepo.save(extendedSsr);
+		// return true;
+		// } else {
+		// return false;
+		// }
+		//
+		// }
 		return false;
 
 	}
 
 	@Override
 	public boolean saveDocumentOfStuRevAppInst(long SsrId, MultipartFile pdf) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		;
-		if (extendedSsr != null) {
-			String fileName = fileService.uploadFile(pdf);
-			extendedSsr.setStuRevalApplicationsInstDataDoc(fileName);
-			extendedSSRRepo.save(extendedSsr);
-			return true;
-		}
+		// ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
+		// ;
+		// if (extendedSsr != null) {
+		// String fileName = fileService.uploadFile(pdf);
+		// extendedSsr.setStuRevalApplicationsInstDataDoc(fileName);
+		// extendedSSRRepo.save(extendedSsr);
+		// return true;
+		// }
 		return false;
 	}
 
 	@Override
 	public boolean deleteDocumentOfStuRevAppInst(long SsrId) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		;
-		if (extendedSsr != null) {
-			String docName = extendedSsr.getStuRevalApplicationsInstDataDoc();
-			boolean success = fileService.deleteFileByName(docName);
-			if (success) {
-				extendedSsr.setStuRevalApplicationsInstDataDoc("");
-				extendedSSRRepo.save(extendedSsr);
-				return true;
-			} else {
-				return false;
-			}
-
-		}
+		// ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
+		// ;
+		// if (extendedSsr != null) {
+		// String docName = extendedSsr.getStuRevalApplicationsInstDataDoc();
+		// boolean success = fileService.deleteFileByName(docName);
+		// if (success) {
+		// extendedSsr.setStuRevalApplicationsInstDataDoc("");
+		// extendedSSRRepo.save(extendedSsr);
+		// return true;
+		// } else {
+		// return false;
+		// }
+		//
+		// }
 		return false;
 
 	}
@@ -634,31 +623,31 @@ public class SSRServiceImpl implements SSRService {
 
 	@Override
 	public boolean saveDocumentOfAcadCoursesInAllProgsInst(long SsrId, MultipartFile pdf) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		if (extendedSsr != null) {
-			String fileName = fileService.uploadFile(pdf);
-			extendedSsr.setAcadCoursesInAllProgsInstDataDoc(fileName);
-			extendedSSRRepo.save(extendedSsr);
-			return true;
-		}
+		// ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
+		// if (extendedSsr != null) {
+		// String fileName = fileService.uploadFile(pdf);
+		// extendedSsr.setAcadCoursesInAllProgsInstDataDoc(fileName);
+		// extendedSSRRepo.save(extendedSsr);
+		// return true;
+		// }
 		return false;
 	}
 
 	@Override
 	public boolean deleteDocumentOfAcadCoursesInAllProgsInst(long SsrId) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		if (extendedSsr != null) {
-			String docName = extendedSsr.getAcadCoursesInAllProgsInstDataDoc();
-			boolean success = fileService.deleteFileByName(docName);
-			if (success) {
-				extendedSsr.setAcadCoursesInAllProgsInstDataDoc("");
-				extendedSSRRepo.save(extendedSsr);
-				return true;
-			} else {
-				return false;
-			}
-
-		}
+		// ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
+		// if (extendedSsr != null) {
+		// String docName = extendedSsr.getAcadCoursesInAllProgsInstDataDoc();
+		// boolean success = fileService.deleteFileByName(docName);
+		// if (success) {
+		// extendedSsr.setAcadCoursesInAllProgsInstDataDoc("");
+		// extendedSSRRepo.save(extendedSsr);
+		// return true;
+		// } else {
+		// return false;
+		// }
+		//
+		// }
 		return false;
 
 	}
@@ -727,62 +716,62 @@ public class SSRServiceImpl implements SSRService {
 
 	@Override
 	public boolean saveDocumentOfAddmAppliReceviedInst(long SsrId, MultipartFile pdf) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		if (extendedSsr != null) {
-			String fileName = fileService.uploadFile(pdf);
-			extendedSsr.setAddmAppliReceviedInstDataDoc(fileName);
-			extendedSSRRepo.save(extendedSsr);
-			return true;
-		}
+		// ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
+		// if (extendedSsr != null) {
+		// String fileName = fileService.uploadFile(pdf);
+		// extendedSsr.setAddmAppliReceviedInstDataDoc(fileName);
+		// extendedSSRRepo.save(extendedSsr);
+		// return true;
+		// }
 		return false;
 	}
 
 	@Override
 	public boolean deleteDocumentOfAddmAppliReceviedInst(long SsrId) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		if (extendedSsr != null) {
-			String docName = extendedSsr.getAddmAppliReceviedInstDataDoc();
-			boolean success = fileService.deleteFileByName(docName);
-			if (success) {
-				extendedSsr.setAddmAppliReceviedInstDataDoc("");
-				extendedSSRRepo.save(extendedSsr);
-				return true;
-			} else {
-				return false;
-			}
-
-		}
+		// ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
+		// if (extendedSsr != null) {
+		// String docName = extendedSsr.getAddmAppliReceviedInstDataDoc();
+		// boolean success = fileService.deleteFileByName(docName);
+		// if (success) {
+		// extendedSsr.setAddmAppliReceviedInstDataDoc("");
+		// extendedSSRRepo.save(extendedSsr);
+		// return true;
+		// } else {
+		// return false;
+		// }
+		//
+		// }
 		return false;
 
 	}
 
 	@Override
 	public boolean saveDocumentOfAddmReservedSeatsInst(long SsrId, MultipartFile pdf) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		if (extendedSsr != null) {
-			String fileName = fileService.uploadFile(pdf);
-			extendedSsr.setAddmReservedSeatsInstDataDoc(fileName);
-			extendedSSRRepo.save(extendedSsr);
-			return true;
-		}
+		// ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
+		// if (extendedSsr != null) {
+		// String fileName = fileService.uploadFile(pdf);
+		// extendedSsr.setAddmReservedSeatsInstDataDoc(fileName);
+		// extendedSSRRepo.save(extendedSsr);
+		// return true;
+		// }
 		return false;
 	}
 
 	@Override
 	public boolean deleteDocumentOfAddmReservedSeatsInst(long SsrId) {
-		ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
-		if (extendedSsr != null) {
-			String docName = extendedSsr.getAddmReservedSeatsInstDataDoc();
-			boolean success = fileService.deleteFileByName(docName);
-			if (success) {
-				extendedSsr.setAddmReservedSeatsInstDataDoc("");
-				extendedSSRRepo.save(extendedSsr);
-				return true;
-			} else {
-				return false;
-			}
-
-		}
+		// ExtendedProfileSSR extendedSsr = extendedSSRRepo.findById(SsrId).get();
+		// if (extendedSsr != null) {
+		// String docName = extendedSsr.getAddmReservedSeatsInstDataDoc();
+		// boolean success = fileService.deleteFileByName(docName);
+		// if (success) {
+		// extendedSsr.setAddmReservedSeatsInstDataDoc("");
+		// extendedSSRRepo.save(extendedSsr);
+		// return true;
+		// } else {
+		// return false;
+		// }
+		//
+		// }
 		return false;
 
 	}
@@ -920,87 +909,130 @@ public class SSRServiceImpl implements SSRService {
 		String fileName = "";
 		if (existingQif != null) {
 			switch (name) {
-				case "documents_CA":
+				case "uploadAdditionalInfoDoc":
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setDocuments_CA(fileName);
+					existingQif.setUploadAdditionalInfoDoc(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "institutionalDataFormatDocs_AF":
+				case "uploadAdditionalInfoDoc2":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setInstitutionalDataFormatDocs_AF(fileName);
+					existingQif.setUploadAdditionalInfoDoc2(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "programBrochureDoc_AF":
+				case "institutionalDataFormatDoc":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setProgramBrochureDoc_AF(fileName);
+					existingQif.setInstDataFormatDoc(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "studentAttendanceList_AF":
+				case "instWebDisclosureDoc":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setStudentAttendanceList_AF(fileName);
+					existingQif.setInstWebDisclosureDoc(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "courseCompletionEvidenceDoc_AF":
+				case "bosMeetingMinutesDoc":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setCourseCompletionEvidenceDoc_AF(fileName);
+					existingQif.setBosMeetingMinutesDoc(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "institutionalDataFormatDoc_AF":
+				case "academicCouncilEndorDoc":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setInstitutionalDataFormatDoc_AF(fileName);
+					existingQif.setAcademicCouncilEndorDoc(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "supportingDoc_AF":
+				case "linkForAnyReleventDoc":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setSupportingDoc_AF(fileName);
+					existingQif.setLinkForAnyReleventDoc(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "supportingDoc_CE":
+				case "additionalInfoDoc":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setSupportingDoc_CE(fileName);
+					existingQif.setAdditionalInfoDoc(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "institutionalDataFormatDoc_CE":
+				case "institutionalWebsiteInfoDoc":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setInstitutionalDataFormatDoc_CE(fileName);
+					existingQif.setInstitutionalWebsiteInfoDoc(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "supportingDocs_CE":
+				case "programBrochureNoticeDoc":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setSupportingDocs_CE(fileName);
+					existingQif.setProgramBrochureNoticeDoc(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "instiDataFormatDoc_FS":
+				case "studentsAttendanceListDOC":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setInstiDataFormatDoc_FS(fileName);
+					existingQif.setStudentsAttendanceListDOC(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "feedbackFormsFromStakeholdersDoc_FS":
+				case "courseCompletionEvidenceDOC":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setFeedbackFormsFromStakeholdersDoc_FS(fileName);
+					existingQif.setStudentsAttendanceListDOC(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "feedbackAnalysisReprtSubmDoc_FS":
+				case "institutionalDataFormatDOC":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setFeedbackAnalysisReprtSubmDoc_FS(fileName);
+					existingQif.setInstitutionalDataFormatDOC(fileName);
 					qifRepo.save(existingQif);
 					return true;
-				case "feedbackActionReportDoc_FS":
+
+				case "institutionalDataFormatDoc2":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingQif.setFeedbackActionReportDoc_FS(fileName);
+					existingQif.setInstitutionalDataFormatDoc2(fileName);
+					qifRepo.save(existingQif);
+					return true;
+				case "progContWithBOSProjDoc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingQif.setProgContWithBOSProjDoc(fileName);
+					qifRepo.save(existingQif);
+					return true;
+				case "InternCompleLetterDoc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingQif.setInternCompleLetterDoc(fileName);
+					qifRepo.save(existingQif);
+					return true;
+				case "EvaluatedProjReportDoc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingQif.setEvaluatedProjReportDoc(fileName);
+					qifRepo.save(existingQif);
+					return true;
+				case "institutionalDataFormatDoc3":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingQif.setInstitutionalDataFormatDoc3(fileName);
+					qifRepo.save(existingQif);
+					return true;
+				case "feedFormDiffStakeHoldersDoc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingQif.setFeedFormDiffStakeHoldersDoc(fileName);
+					qifRepo.save(existingQif);
+					return true;
+				case "feedbackAnalysisReportDoc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingQif.setFeedbackAnalysisReportDoc(fileName);
+					qifRepo.save(existingQif);
+					return true;
+				case "actionTakenReportDoc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingQif.setFeedbackAnalysisReportDoc(fileName);
 					qifRepo.save(existingQif);
 					return true;
 				default:
@@ -1014,123 +1046,172 @@ public class SSRServiceImpl implements SSRService {
 	@Override
 	public boolean deleteDocuments_C1(long qifId, String name) {
 		Qif existingQif = qifRepo.findById(qifId).get();
-		;
+
 		String fileName = "";
 		boolean success;
 		if (existingQif != null) {
 			switch (name) {
-				case "documents_CA":
-					fileName = existingQif.getDocuments_CA();
+				case "uploadAdditionalInfoDoc":
+					fileName = existingQif.getUploadAdditionalInfoDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setDocuments_CA("");
+						existingQif.setUploadAdditionalInfoDoc("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "institutionalDataFormatDocs_AF":
-					fileName = existingQif.getInstitutionalDataFormatDocs_AF();
+				case "uploadAdditionalInfoDoc2":
+					fileName = existingQif.getUploadAdditionalInfoDoc2();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setInstitutionalDataFormatDocs_AF("");
+						existingQif.setUploadAdditionalInfoDoc2("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "programBrochureDoc_AF":
-					fileName = existingQif.getProgramBrochureDoc_AF();
+				case "institutionalDataFormatDoc":
+					fileName = existingQif.getInstDataFormatDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setProgramBrochureDoc_AF("");
+						existingQif.setInstDataFormatDoc("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "studentAttendanceList_AF":
-					fileName = existingQif.getStudentAttendanceList_AF();
+				case "instWebDisclosureDoc":
+					fileName = existingQif.getInstWebDisclosureDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setStudentAttendanceList_AF("");
+						existingQif.setInstWebDisclosureDoc("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "courseCompletionEvidenceDoc_AF":
-					fileName = existingQif.getCourseCompletionEvidenceDoc_AF();
+				case "bosMeetingMinutesDoc":
+					fileName = existingQif.getBosMeetingMinutesDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setCourseCompletionEvidenceDoc_AF("");
+						existingQif.setBosMeetingMinutesDoc("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "institutionalDataFormatDoc_AF":
-					fileName = existingQif.getInstitutionalDataFormatDoc_AF();
+				case "academicCouncilEndorDoc":
+					fileName = existingQif.getAcademicCouncilEndorDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setInstitutionalDataFormatDoc_AF("");
+						existingQif.setAcademicCouncilEndorDoc("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "supportingDoc_AF":
-					fileName = existingQif.getSupportingDoc_AF();
+				case "linkForAnyReleventDoc":
+					fileName = existingQif.getLinkForAnyReleventDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setSupportingDoc_AF("");
+						existingQif.setLinkForAnyReleventDoc("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "supportingDoc_CE":
-					fileName = existingQif.getSupportingDoc_CE();
+				case "additionalInfoDoc":
+					fileName = existingQif.getAdditionalInfoDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setSupportingDoc_CE("");
+						existingQif.setAdditionalInfoDoc("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "institutionalDataFormatDoc_CE":
-					fileName = existingQif.getInstitutionalDataFormatDoc_CE();
+				case "institutionalWebsiteInfoDoc":
+					fileName = existingQif.getInstitutionalWebsiteInfoDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setInstitutionalDataFormatDoc_CE("");
+						existingQif.setInstitutionalWebsiteInfoDoc("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "supportingDocs_CE":
-					fileName = existingQif.getSupportingDocs_CE();
+				case "programBrochureNoticeDoc":
+					fileName = existingQif.getProgramBrochureNoticeDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setSupportingDocs_CE("");
+						existingQif.setProgramBrochureNoticeDoc("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "instiDataFormatDoc_FS":
-					fileName = existingQif.getInstiDataFormatDoc_FS();
+				case "studentsAttendanceListDOC":
+					fileName = existingQif.getStudentsAttendanceListDOC();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setInstiDataFormatDoc_FS("");
+						existingQif.setStudentsAttendanceListDOC("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "feedbackFormsFromStakeholdersDoc_FS":
-					fileName = existingQif.getFeedbackFormsFromStakeholdersDoc_FS();
+				case "courseCompletionEvidenceDOC":
+					fileName = existingQif.getCourseCompletionEvidenceDOC();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setFeedbackFormsFromStakeholdersDoc_FS("");
+						existingQif.setCourseCompletionEvidenceDOC("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "feedbackAnalysisReprtSubmDoc_FS":
-					fileName = existingQif.getFeedbackAnalysisReprtSubmDoc_FS();
+				case "institutionalDataFormatDOC":
+					fileName = existingQif.getInstitutionalDataFormatDOC();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setFeedbackAnalysisReprtSubmDoc_FS("");
+						existingQif.setInstitutionalDataFormatDOC("");
 						qifRepo.save(existingQif);
 						return true;
 					}
-				case "feedbackActionReportDoc_FS":
-					fileName = existingQif.getFeedbackActionReportDoc_FS();
+				case "progContWithBOSProjDoc":
+					fileName = existingQif.getProgContWithBOSProjDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingQif.setFeedbackActionReportDoc_FS("");
+						existingQif.setProgContWithBOSProjDoc("");
 						qifRepo.save(existingQif);
 						return true;
 					}
+				case "InternCompleLetterDoc":
+					fileName = existingQif.getInternCompleLetterDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingQif.setInternCompleLetterDoc("");
+						qifRepo.save(existingQif);
+						return true;
+					}
+				case "EvaluatedProjReportDoc":
+					fileName = existingQif.getEvaluatedProjReportDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingQif.setEvaluatedProjReportDoc("");
+						qifRepo.save(existingQif);
+						return true;
+					}
+				case "institutionalDataFormatDoc3":
+					fileName = existingQif.getInstitutionalDataFormatDoc3();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingQif.setInstitutionalDataFormatDoc3("");
+						qifRepo.save(existingQif);
+						return true;
+					}
+				case "feedFormDiffStakeHoldersDoc":
+					fileName = existingQif.getFeedFormDiffStakeHoldersDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingQif.setFeedFormDiffStakeHoldersDoc("");
+						qifRepo.save(existingQif);
+						return true;
+					}
+				case "feedbackAnalysisReportDoc":
+					fileName = existingQif.getFeedbackAnalysisReportDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingQif.setFeedbackAnalysisReportDoc("");
+						qifRepo.save(existingQif);
+						return true;
+					}
+				case "actionTakenReportDoc":
+					fileName = existingQif.getActionTakenReportDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingQif.setActionTakenReportDoc("");
+						qifRepo.save(existingQif);
+						return true;
+					}
+
 				default:
 					// Handle unexpected name
 					break;
@@ -1188,125 +1269,137 @@ public class SSRServiceImpl implements SSRService {
 		String fileName = "";
 		if (existingCriteriaII != null) {
 			switch (name) {
+				case "institutionalDataTemplate_doc":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaII.setInstiPresDataTemplate_doc(fileName);
+					c2_repo.save(existingCriteriaII);
+					return true;
 				case "instDataTemplate_doc":
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setInstDataTemplate_doc(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
 				case "intakeSanctionApproval_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setIntakeSanctionApproval_doc(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
 				case "finalAdmissionList_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaII.setFinalAdmissionList_doc(fileName);
+					c2_repo.save(existingCriteriaII);
+					return true;
+				case "finalAdmissionList_doc2":
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setFinalAdmissionList_doc(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
 				case "instDataTemplate_doc2":
-					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setInstDataTemplate_doc2(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
 				case "govtLetter_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setGovtLetter_doc(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
-				case "linkForOtherRelivantDoc":
-					// Implement logic for institutionalDataFormatDocs_AF
+				case "finalAdmiList_Doc60":
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaII.setLinkForOtherRelivantDoc(fileName);
-					c2_repo.save(existingCriteriaII);
-					return true;
-				case "institutionalDataTemplate_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaII.setInstitutionalDataTemplate_doc(fileName);
-					c2_repo.save(existingCriteriaII);
-					return true;
-				case "finalAdmissionList_doc2":
-					// Implement logic for institutionalDataFormatDocs_AF
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaII.setFinalAdmissionList_doc2(fileName);
+					existingCriteriaII.setFinalAdmiList_Doc60(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
 				case "additionalInfo_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setAdditionalInfo_doc(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
-				case "additionalInfo_doc2":
-					// Implement logic for institutionalDataFormatDocs_AF
+				case "additionalInfo_Doc80":
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaII.setAdditionalInfo_doc2(fileName);
+					existingCriteriaII.setAdditionalInfo_Doc80(fileName);
+					c2_repo.save(existingCriteriaII);
+					return true;
+				case "additionalInfo_doc86":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaII.setAdditionalInfo_doc86(fileName);
+					c2_repo.save(existingCriteriaII);
+					return true;
+				case "additionalInfo_Doc2":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaII.setAdditionalInfo_Doc2(fileName);
+					c2_repo.save(existingCriteriaII);
+					return true;
+				case "listOfActvMentor_Doc":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaII.setListOfActvMentor_Doc(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
 				case "sanctionedPostsMap_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setSanctionedPostsMap_doc(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
 				case "instDataTemplate_doc3":
-					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setInstDataTemplate_doc3(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
-				case "facultyPhDList_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaII.setFacultyPhDList_doc(fileName);
-					c2_repo.save(existingCriteriaII);
-					return true;
-				case "ugcRecognizedPhdDegrees_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaII.setUgcRecognizedPhdDegrees_doc(fileName);
-					c2_repo.save(existingCriteriaII);
-					return true;
 				case "additionalInfo_doc3":
-					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setAdditionalInfo_doc3(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
+				case "instDataTemplate_doc5":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaII.setInstDataTemplate_doc5(fileName);
+					c2_repo.save(existingCriteriaII);
+					return true;
+				case "dataTemp_Doc":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaII.setDataTemp_Doc(fileName);
+					c2_repo.save(existingCriteriaII);
+					return true;
 				case "additionalInfo_doc4":
-					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setAdditionalInfo_doc4(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
+				case "cosForAllCoursesDoc":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaII.setCosForAllCoursesDoc(fileName);
+					c2_repo.save(existingCriteriaII);
+					return true;
 				case "additionalInfo_doc5":
-					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setAdditionalInfo_doc5(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
-				case "instDataTemplate_doc4":
-					// Implement logic for institutionalDataFormatDocs_AF
+				case "dataTemplate_doc":
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaII.setInstDataTemplate_doc4(fileName);
+					existingCriteriaII.setDataTemplate_doc(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
 				case "coeReportPassPercentage_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setCoeReportPassPercentage_doc(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
 				case "coePassPercentReport_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaII.setCoePassPercentReport_doc(fileName);
 					c2_repo.save(existingCriteriaII);
 					return true;
+				case "additionalIfoDoc":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaII.setCoePassPercentReport_doc(fileName);
+					c2_repo.save(existingCriteriaII);
+					return true;
+				case "currentlyEnrolledStudDoc":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaII.setCoePassPercentReport_doc(fileName);
+					c2_repo.save(existingCriteriaII);
+					return true;
+
 				default:
 					// Handle unexpected name
 					break;
@@ -1322,6 +1415,14 @@ public class SSRServiceImpl implements SSRService {
 		boolean success;
 		if (existingCriteriaII != null) {
 			switch (name) {
+				case "institutionalDataTemplate_doc":
+					fileName = existingCriteriaII.getInstiPresDataTemplate_doc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaII.setInstiPresDataTemplate_doc("");
+						c2_repo.save(existingCriteriaII);
+						return true;
+					}
 				case "instDataTemplate_doc":
 					fileName = existingCriteriaII.getInstDataTemplate_doc();
 					success = fileService.deleteFileByName(fileName);
@@ -1346,6 +1447,14 @@ public class SSRServiceImpl implements SSRService {
 						c2_repo.save(existingCriteriaII);
 						return true;
 					}
+				case "finalAdmissionList_doc2":
+					fileName = existingCriteriaII.getFinalAdmissionList_doc2();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaII.setFinalAdmissionList_doc2("");
+						c2_repo.save(existingCriteriaII);
+						return true;
+					}
 				case "instDataTemplate_doc2":
 					fileName = existingCriteriaII.getInstDataTemplate_doc2();
 					success = fileService.deleteFileByName(fileName);
@@ -1362,11 +1471,11 @@ public class SSRServiceImpl implements SSRService {
 						c2_repo.save(existingCriteriaII);
 						return true;
 					}
-				case "linkForOtherRelivantDoc":
-					fileName = existingCriteriaII.getLinkForOtherRelivantDoc();
+				case "finalAdmiList_Doc60":
+					fileName = existingCriteriaII.getFinalAdmiList_Doc60();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaII.setLinkForOtherRelivantDoc("");
+						existingCriteriaII.setFinalAdmiList_Doc60("");
 						c2_repo.save(existingCriteriaII);
 						return true;
 					}
@@ -1378,11 +1487,35 @@ public class SSRServiceImpl implements SSRService {
 						c2_repo.save(existingCriteriaII);
 						return true;
 					}
-				case "additionalInfo_doc2":
-					fileName = existingCriteriaII.getAdditionalInfo_doc2();
+				case "additionalInfo_Doc":
+					fileName = existingCriteriaII.getAdditionalInfo_Doc80();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaII.setAdditionalInfo_doc2("");
+						existingCriteriaII.setAdditionalInfo_Doc80("");
+						c2_repo.save(existingCriteriaII);
+						return true;
+					}
+				case "additionalInfo_doc86":
+					fileName = existingCriteriaII.getAdditionalInfo_doc86();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaII.setAdditionalInfo_doc86("");
+						c2_repo.save(existingCriteriaII);
+						return true;
+					}
+				case "additionalInfo_Doc2":
+					fileName = existingCriteriaII.getAdditionalInfo_Doc2();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaII.setAdditionalInfo_Doc2("");
+						c2_repo.save(existingCriteriaII);
+						return true;
+					}
+				case "listOfActvMentor_Doc":
+					fileName = existingCriteriaII.getListOfActvMentor_Doc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaII.setListOfActvMentor_Doc("");
 						c2_repo.save(existingCriteriaII);
 						return true;
 					}
@@ -1402,27 +1535,27 @@ public class SSRServiceImpl implements SSRService {
 						c2_repo.save(existingCriteriaII);
 						return true;
 					}
-				case "facultyPhDList_doc":
-					fileName = existingCriteriaII.getFacultyPhDList_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaII.setFacultyPhDList_doc("");
-						c2_repo.save(existingCriteriaII);
-						return true;
-					}
-				case "ugcRecognizedPhdDegrees_doc":
-					fileName = existingCriteriaII.getUgcRecognizedPhdDegrees_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaII.setUgcRecognizedPhdDegrees_doc("");
-						c2_repo.save(existingCriteriaII);
-						return true;
-					}
 				case "additionalInfo_doc3":
 					fileName = existingCriteriaII.getAdditionalInfo_doc3();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
 						existingCriteriaII.setAdditionalInfo_doc3("");
+						c2_repo.save(existingCriteriaII);
+						return true;
+					}
+				case "instDataTemplate_doc5":
+					fileName = existingCriteriaII.getInstDataTemplate_doc5();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaII.setInstDataTemplate_doc5("");
+						c2_repo.save(existingCriteriaII);
+						return true;
+					}
+				case "dataTemp_Doc":
+					fileName = existingCriteriaII.getDataTemp_Doc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaII.setDataTemp_Doc("");
 						c2_repo.save(existingCriteriaII);
 						return true;
 					}
@@ -1434,6 +1567,14 @@ public class SSRServiceImpl implements SSRService {
 						c2_repo.save(existingCriteriaII);
 						return true;
 					}
+				case "cosForAllCoursesDoc":
+					fileName = existingCriteriaII.getCosForAllCoursesDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaII.setCosForAllCoursesDoc("");
+						c2_repo.save(existingCriteriaII);
+						return true;
+					}
 				case "additionalInfo_doc5":
 					fileName = existingCriteriaII.getAdditionalInfo_doc5();
 					success = fileService.deleteFileByName(fileName);
@@ -1442,11 +1583,11 @@ public class SSRServiceImpl implements SSRService {
 						c2_repo.save(existingCriteriaII);
 						return true;
 					}
-				case "instDataTemplate_doc4":
-					fileName = existingCriteriaII.getInstDataTemplate_doc4();
+				case "dataTemplate_doc":
+					fileName = existingCriteriaII.getDataTemplate_doc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaII.setInstDataTemplate_doc4("");
+						existingCriteriaII.setDataTemplate_doc("");
 						c2_repo.save(existingCriteriaII);
 						return true;
 					}
@@ -1466,6 +1607,23 @@ public class SSRServiceImpl implements SSRService {
 						c2_repo.save(existingCriteriaII);
 						return true;
 					}
+				case "additionalIfoDoc":
+					fileName = existingCriteriaII.getAdditionalIfoDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaII.setAdditionalIfoDoc("");
+						c2_repo.save(existingCriteriaII);
+						return true;
+					}
+				case "currentlyEnrolledStudDoc":
+					fileName = existingCriteriaII.getCurrentlyEnrolledStudDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaII.setCurrentlyEnrolledStudDoc("");
+						c2_repo.save(existingCriteriaII);
+						return true;
+					}
+
 				default:
 					// Handle unexpected name
 					break;
@@ -1506,15 +1664,45 @@ public class SSRServiceImpl implements SSRService {
 		String fileName = "";
 		if (existingCriteriaIII != null) {
 			switch (name) {
+				case "additionalInfoDoc":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaIII.setAdditionalInforDoc(fileName);
+					c3_repo.save(existingCriteriaIII);
+					return true;
+				case "supportingDoc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaIII.setSupportingDoc(fileName);
+					c3_repo.save(existingCriteriaIII);
+					return true;
+				case "institDataTempDoc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaIII.setInstitDataTempDoc2(fileName);
+					c3_repo.save(existingCriteriaIII);
+					return true;
+				case "institDataTemp_Doc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaIII.setInstitDataTemp_Doc(fileName);
+					c3_repo.save(existingCriteriaIII);
+					return true;
 				case "instDataTemplate_doc":
+					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaIII.setInstDataTemplate_doc(fileName);
 					c3_repo.save(existingCriteriaIII);
 					return true;
-				case "supporting_doc":
+				case "supporting_doc91":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaIII.setSupporting_doc(fileName);
+					existingCriteriaIII.setSupporting_doc91(fileName);
+					c3_repo.save(existingCriteriaIII);
+					return true;
+				case "institutionalDataTemplateDoc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaIII.setInstitutionalDataTemplateDoc(fileName);
 					c3_repo.save(existingCriteriaIII);
 					return true;
 				case "additionalInfo_doc":
@@ -1532,7 +1720,7 @@ public class SSRServiceImpl implements SSRService {
 				case "supporting_doc2":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaIII.setSupporting_doc2(fileName);
+					existingCriteriaIII.setSupporting_doc32(fileName);
 					c3_repo.save(existingCriteriaIII);
 					return true;
 				case "institutionalDataFormat_doc2":
@@ -1541,44 +1729,39 @@ public class SSRServiceImpl implements SSRService {
 					existingCriteriaIII.setInstitutionalDataFormat_doc2(fileName);
 					c3_repo.save(existingCriteriaIII);
 					return true;
+
 				case "institutionalDataFormat_doc3":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaIII.setInstitutionalDataFormat_doc3(fileName);
 					c3_repo.save(existingCriteriaIII);
 					return true;
-				case "institutionalDataFormat_doc4":
+
+				case "institDataFormat_doc":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaIII.setInstitutionalDataFormat_doc4(fileName);
+					existingCriteriaIII.setInstitDataFormat_doc(fileName);
 					c3_repo.save(existingCriteriaIII);
 					return true;
-				case "collaborationsByActivity_doc":
+				case "institDataFormat_doc2":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaIII.setCollaborationsByActivity_doc(fileName);
-					c3_repo.save(existingCriteriaIII);
-					return true;
-				case "collaborationDetails_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaIII.setCollaborationDetails_doc(fileName);
-					c3_repo.save(existingCriteriaIII);
-					return true;
-				case "activitiesByYear_doc":
-					// Implement logic for institutionalDataFormatDocs_AF
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaIII.setActivitiesByYear_doc(fileName);
+					existingCriteriaIII.setInstitDataFormat_doc2(fileName);
 					c3_repo.save(existingCriteriaIII);
 					return true;
 
-				case "firstPageWithISBN_doc":
+				case "instDataTempDoc":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaIII.setFirstPageWithISBN_doc(fileName);
+					existingCriteriaIII.setInstDataTempDoc(fileName);
 					c3_repo.save(existingCriteriaIII);
 					return true;
-
+				case "instDataTempDoc2":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaIII.setInstDataTempDoc2(fileName);
+					c3_repo.save(existingCriteriaIII);
+					return true;
 				case "addInfo_doc":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
@@ -1591,17 +1774,16 @@ public class SSRServiceImpl implements SSRService {
 					existingCriteriaIII.setAddInfo_doc2(fileName);
 					c3_repo.save(existingCriteriaIII);
 					return true;
-
 				case "institutionalDataFormat_doc5":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaIII.setInstitutionalDataFormat_doc5(fileName);
 					c3_repo.save(existingCriteriaIII);
 					return true;
-				case "docWithCaptionsAndDates_doc":
+				case "institutionalDataFormat_doc4":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaIII.setDocWithCaptionsAndDates_doc(fileName);
+					existingCriteriaIII.setInstitutionalDataFormat_doc4(fileName);
 					c3_repo.save(existingCriteriaIII);
 					return true;
 				default:
@@ -1619,35 +1801,35 @@ public class SSRServiceImpl implements SSRService {
 		boolean success;
 		if (existingCriteriaIII != null) {
 			switch (name) {
-				case "addInfo_doc":
-					fileName = existingCriteriaIII.getAddInfo_doc();
+				case "additionalInfoDoc":
+					fileName = existingCriteriaIII.getAdditionalInforDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaIII.setAddInfo_doc("");
+						existingCriteriaIII.setAdditionalInforDoc("");
 						c3_repo.save(existingCriteriaIII);
 						return true;
 					}
-				case "institutionalDataFormat_doc5":
-					fileName = existingCriteriaIII.getAddInfo_doc();
+				case "supportingDoc":
+					fileName = existingCriteriaIII.getSupportingDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaIII.setInstitutionalDataFormat_doc5("");
+						existingCriteriaIII.setSupportingDoc("");
 						c3_repo.save(existingCriteriaIII);
 						return true;
 					}
-				case "docWithCaptionsAndDates_doc":
-					fileName = existingCriteriaIII.getAddInfo_doc();
+				case "institDataTempDoc":
+					fileName = existingCriteriaIII.getInstitDataTempDoc2();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaIII.setDocWithCaptionsAndDates_doc("");
+						existingCriteriaIII.setInstitDataTempDoc2("");
 						c3_repo.save(existingCriteriaIII);
 						return true;
 					}
-				case "addInfo_doc2":
-					fileName = existingCriteriaIII.getAddInfo_doc2();
+				case "institDataTemp_Doc":
+					fileName = existingCriteriaIII.getInstitDataTemp_Doc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaIII.setAddInfo_doc2("");
+						existingCriteriaIII.setInstitDataTemp_Doc("");
 						c3_repo.save(existingCriteriaIII);
 						return true;
 					}
@@ -1659,11 +1841,19 @@ public class SSRServiceImpl implements SSRService {
 						c3_repo.save(existingCriteriaIII);
 						return true;
 					}
-				case "supporting_doc":
-					fileName = existingCriteriaIII.getSupporting_doc();
+				case "supporting_doc91":
+					fileName = existingCriteriaIII.getSupporting_doc91();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaIII.setSupporting_doc("");
+						existingCriteriaIII.setSupporting_doc91("");
+						c3_repo.save(existingCriteriaIII);
+						return true;
+					}
+				case "institutionalDataTemplateDoc":
+					fileName = existingCriteriaIII.getInstitutionalDataTemplateDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIII.setInstitutionalDataTemplateDoc("");
 						c3_repo.save(existingCriteriaIII);
 						return true;
 					}
@@ -1684,10 +1874,10 @@ public class SSRServiceImpl implements SSRService {
 						return true;
 					}
 				case "supporting_doc2":
-					fileName = existingCriteriaIII.getSupporting_doc2();
+					fileName = existingCriteriaIII.getSupporting_doc32();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaIII.setSupporting_doc2("");
+						existingCriteriaIII.setSupporting_doc32("");
 						c3_repo.save(existingCriteriaIII);
 						return true;
 					}
@@ -1707,43 +1897,67 @@ public class SSRServiceImpl implements SSRService {
 						c3_repo.save(existingCriteriaIII);
 						return true;
 					}
+				case "institDataFormat_doc":
+					fileName = existingCriteriaIII.getInstitDataFormat_doc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIII.setInstitDataFormat_doc("");
+						c3_repo.save(existingCriteriaIII);
+						return true;
+					}
+				case "institDataFormat_doc2":
+					fileName = existingCriteriaIII.getInstitDataFormat_doc2();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIII.setInstitDataFormat_doc2("");
+						c3_repo.save(existingCriteriaIII);
+						return true;
+					}
+				case "instDataTempDoc":
+					fileName = existingCriteriaIII.getInstDataTempDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIII.setInstDataTempDoc("");
+						c3_repo.save(existingCriteriaIII);
+						return true;
+					}
+				case "instDataTempDoc2":
+					fileName = existingCriteriaIII.getInstDataTempDoc2();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIII.setInstDataTempDoc2("");
+						c3_repo.save(existingCriteriaIII);
+						return true;
+					}
+				case "addInfo_doc":
+					fileName = existingCriteriaIII.getAddInfo_doc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIII.setAddInfo_doc("");
+						c3_repo.save(existingCriteriaIII);
+						return true;
+					}
+				case "addInfo_doc2":
+					fileName = existingCriteriaIII.getAddInfo_doc2();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIII.setAddInfo_doc2("");
+						c3_repo.save(existingCriteriaIII);
+						return true;
+					}
+				case "institutionalDataFormat_doc5":
+					fileName = existingCriteriaIII.getInstitutionalDataFormat_doc5();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIII.setInstitutionalDataFormat_doc5("");
+						c3_repo.save(existingCriteriaIII);
+						return true;
+					}
 				case "institutionalDataFormat_doc4":
 					fileName = existingCriteriaIII.getInstitutionalDataFormat_doc4();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
 						existingCriteriaIII.setInstitutionalDataFormat_doc4("");
-						c3_repo.save(existingCriteriaIII);
-						return true;
-					}
-				case "collaborationsByActivity_doc":
-					fileName = existingCriteriaIII.getCollaborationsByActivity_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaIII.setCollaborationsByActivity_doc("");
-						c3_repo.save(existingCriteriaIII);
-						return true;
-					}
-				case "collaborationDetails_doc":
-					fileName = existingCriteriaIII.getCollaborationDetails_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaIII.setCollaborationDetails_doc("");
-						c3_repo.save(existingCriteriaIII);
-						return true;
-					}
-				case "activitiesByYear_doc":
-					fileName = existingCriteriaIII.getActivitiesByYear_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaIII.setActivitiesByYear_doc("");
-						c3_repo.save(existingCriteriaIII);
-						return true;
-					}
-				case "firstPageWithISBN_doc":
-					fileName = existingCriteriaIII.getFirstPageWithISBN_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaIII.setFirstPageWithISBN_doc("");
 						c3_repo.save(existingCriteriaIII);
 						return true;
 					}
@@ -1810,6 +2024,18 @@ public class SSRServiceImpl implements SSRService {
 					existingCriteriaIV.setAddInfo_doc2(fileName);
 					c4_repo.save(existingCriteriaIV);
 					return true;
+				case "relevantDOc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaIV.setRelevantDOc(fileName);
+					c4_repo.save(existingCriteriaIV);
+					return true;
+				case "addInfo_doc8":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaIV.setAddInfo_doc8(fileName);
+					c4_repo.save(existingCriteriaIV);
+					return true;
 				case "addInfo_doc3":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
@@ -1828,10 +2054,22 @@ public class SSRServiceImpl implements SSRService {
 					existingCriteriaIV.setNumCompPurchased_doc(fileName);
 					c4_repo.save(existingCriteriaIV);
 					return true;
+				case "prescribedformatDoc":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaIV.setPrescribedformatDoc(fileName);
+					c4_repo.save(existingCriteriaIV);
+					return true;
 				case "addInfo_doc4":
 					// Implement logic for institutionalDataFormatDocs_AF
 					fileName = fileService.uploadFile(pdf);
 					existingCriteriaIV.setAddInfo_doc4(fileName);
+					c4_repo.save(existingCriteriaIV);
+					return true;
+				case "addInfo_doc5":
+					// Implement logic for institutionalDataFormatDocs_AF
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaIV.setAddInfo_doc5(fileName);
 					c4_repo.save(existingCriteriaIV);
 					return true;
 				default:
@@ -1881,6 +2119,22 @@ public class SSRServiceImpl implements SSRService {
 						c4_repo.save(existingCriteriaIV);
 						return true;
 					}
+				case "relevantDOc":
+					fileName = existingCriteriaIV.getRelevantDOc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIV.setRelevantDOc("");
+						c4_repo.save(existingCriteriaIV);
+						return true;
+					}
+				case "addInfo_doc8":
+					fileName = existingCriteriaIV.getAddInfo_doc8();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIV.setAddInfo_doc8("");
+						c4_repo.save(existingCriteriaIV);
+						return true;
+					}
 				case "addInfo_doc3":
 					fileName = existingCriteriaIV.getAddInfo_doc3();
 					success = fileService.deleteFileByName(fileName);
@@ -1905,8 +2159,24 @@ public class SSRServiceImpl implements SSRService {
 						c4_repo.save(existingCriteriaIV);
 						return true;
 					}
+				case "prescribedformatDoc":
+					fileName = existingCriteriaIV.getPrescribedformatDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIV.setPrescribedformatDoc("");
+						c4_repo.save(existingCriteriaIV);
+						return true;
+					}
 				case "addInfo_doc4":
 					fileName = existingCriteriaIV.getAddInfo_doc4();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaIV.setAddInfo_doc4("");
+						c4_repo.save(existingCriteriaIV);
+						return true;
+					}
+				case "addInfo_doc5":
+					fileName = existingCriteriaIV.getAddInfo_doc5();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
 						existingCriteriaIV.setAddInfo_doc4("");
@@ -1959,64 +2229,19 @@ public class SSRServiceImpl implements SSRService {
 					existingCriteriaV.setInstitutionalDataTemplate_doc(fileName);
 					c5_repo.save(existingCriteriaV);
 					return true;
-				case "sanctionLetter_doc":
+				case "addInfoDoc":
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setSanctionLetter_doc(fileName);
+					existingCriteriaV.setAddInfoDoc(fileName);
 					c5_repo.save(existingCriteriaV);
 					return true;
-				case "heiScholarshipPolicy_doc":
+				case "prescribedDataDoc":
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setHeiScholarshipPolicy_doc(fileName);
+					existingCriteriaV.setPrescribedDataDoc(fileName);
 					c5_repo.save(existingCriteriaV);
 					return true;
-				case "beneficiaryListsByYear_doc":
+				case "prescribedDataDoc2":
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setBeneficiaryListsByYear_doc(fileName);
-					c5_repo.save(existingCriteriaV);
-					return true;
-				case "institutionalDataTemplate_doc2":
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setInstitutionalDataTemplate_doc2(fileName);
-					c5_repo.save(existingCriteriaV);
-					return true;
-				case "ReportEnhanceSkillsAndActivities_doc":
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setReportEnhanceSkillsAndActivities_doc(fileName);
-					c5_repo.save(existingCriteriaV);
-					return true;
-				case "TechAwarenessProgramReport_doc":
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setTechAwarenessProgramReport_doc(fileName);
-					c5_repo.save(existingCriteriaV);
-					return true;
-				case "institutionalDataTemplate_doc3":
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setInstitutionalDataTemplate_doc3(fileName);
-					c5_repo.save(existingCriteriaV);
-					return true;
-				case "statRegCommittees_doc":
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setStatRegCommittees_doc(fileName);
-					c5_repo.save(existingCriteriaV);
-					return true;
-				case "GuidelineComplianceProof_doc":
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setGuidelineComplianceProof_doc(fileName);
-					c5_repo.save(existingCriteriaV);
-					return true;
-				case "orgAwarenessPolicyZeroTol_doc":
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setOrgAwarenessPolicyZeroTol_doc(fileName);
-					c5_repo.save(existingCriteriaV);
-					return true;
-				case "grievanceSubmitMech_doc":
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setGrievanceSubmitMech_doc(fileName);
-					c5_repo.save(existingCriteriaV);
-					return true;
-				case "cmagnogReport_doc":
-					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setCmagnogReport_doc(fileName);
+					existingCriteriaV.setPrescribedDataDoc2(fileName);
 					c5_repo.save(existingCriteriaV);
 					return true;
 				case "institutionalDataTemplate_doc4":
@@ -2039,21 +2264,32 @@ public class SSRServiceImpl implements SSRService {
 					existingCriteriaV.setInstitutionalDataTemplate_doc6(fileName);
 					c5_repo.save(existingCriteriaV);
 					return true;
-				case "institutionalDataTemplate_doc7":
+				case "addInfoDo2":
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setInstitutionalDataTemplate_doc7(fileName);
+					existingCriteriaV.setAddInfoDo2(fileName);
 					c5_repo.save(existingCriteriaV);
 					return true;
-				case "suporting_doc":
+				case "addInfoDo3":
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setSuporting_doc(fileName);
+					existingCriteriaV.setAddInfoDo3(fileName);
 					c5_repo.save(existingCriteriaV);
 					return true;
-				case "addInfo_doc":
+				case "HEI_Annual_Audit_AlumniDoc":
 					fileName = fileService.uploadFile(pdf);
-					existingCriteriaV.setAddInfo_doc(fileName);
+					existingCriteriaV.setHEI_Annual_Audit_AlumniDoc(fileName);
 					c5_repo.save(existingCriteriaV);
 					return true;
+				case "alumni_contributionsDoc":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaV.setAlumni_contributionsDoc(fileName);
+					c5_repo.save(existingCriteriaV);
+					return true;
+				case "addInfo_doc8":
+					fileName = fileService.uploadFile(pdf);
+					existingCriteriaV.setAddInfo_doc8(fileName);
+					c5_repo.save(existingCriteriaV);
+					return true;
+				
 				default:
 					// Handle unexpected name
 					break;
@@ -2077,99 +2313,27 @@ public class SSRServiceImpl implements SSRService {
 						c5_repo.save(existingCriteriaV);
 						return true;
 					}
-				case "sanctionLetter_doc":
-					fileName = existingCriteriaV.getSanctionLetter_doc();
+				case "addInfoDoc":
+					fileName = existingCriteriaV.getAddInfoDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaV.setSanctionLetter_doc("");
+						existingCriteriaV.setAddInfoDoc("");
 						c5_repo.save(existingCriteriaV);
 						return true;
 					}
-				case "heiScholarshipPolicy_doc":
-					fileName = existingCriteriaV.getHeiScholarshipPolicy_doc();
+				case "prescribedDataDoc":
+					fileName = existingCriteriaV.getPrescribedDataDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaV.setHeiScholarshipPolicy_doc("");
+						existingCriteriaV.setPrescribedDataDoc("");
 						c5_repo.save(existingCriteriaV);
 						return true;
 					}
-				case "beneficiaryListsByYear_doc":
-					fileName = existingCriteriaV.getBeneficiaryListsByYear_doc();
+				case "prescribedDataDoc2":
+					fileName = existingCriteriaV.getPrescribedDataDoc2();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaV.setBeneficiaryListsByYear_doc("");
-						c5_repo.save(existingCriteriaV);
-						return true;
-					}
-				case "institutionalDataTemplate_doc2":
-					fileName = existingCriteriaV.getInstitutionalDataTemplate_doc2();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaV.setInstitutionalDataTemplate_doc2("");
-						c5_repo.save(existingCriteriaV);
-						return true;
-					}
-				case "ReportEnhanceSkillsAndActivities_doc":
-					fileName = existingCriteriaV.getReportEnhanceSkillsAndActivities_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaV.setReportEnhanceSkillsAndActivities_doc("");
-						c5_repo.save(existingCriteriaV);
-						return true;
-					}
-				case "TechAwarenessProgramReport_doc":
-					fileName = existingCriteriaV.getTechAwarenessProgramReport_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaV.setTechAwarenessProgramReport_doc("");
-						c5_repo.save(existingCriteriaV);
-						return true;
-					}
-				case "institutionalDataTemplate_doc3":
-					fileName = existingCriteriaV.getInstitutionalDataTemplate_doc3();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaV.setInstitutionalDataTemplate_doc3("");
-						c5_repo.save(existingCriteriaV);
-						return true;
-					}
-				case "statRegCommittees_doc":
-					fileName = existingCriteriaV.getStatRegCommittees_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaV.setStatRegCommittees_doc("");
-						c5_repo.save(existingCriteriaV);
-						return true;
-					}
-				case "GuidelineComplianceProof_doc":
-					fileName = existingCriteriaV.getGuidelineComplianceProof_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaV.setGuidelineComplianceProof_doc("");
-						c5_repo.save(existingCriteriaV);
-						return true;
-					}
-				case "orgAwarenessPolicyZeroTol_doc":
-					fileName = existingCriteriaV.getOrgAwarenessPolicyZeroTol_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaV.setOrgAwarenessPolicyZeroTol_doc("");
-						c5_repo.save(existingCriteriaV);
-						return true;
-					}
-				case "grievanceSubmitMech_doc":
-					fileName = existingCriteriaV.getGrievanceSubmitMech_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaV.setGrievanceSubmitMech_doc("");
-						c5_repo.save(existingCriteriaV);
-						return true;
-					}
-				case "cmagnogReport_doc":
-					fileName = existingCriteriaV.getCmagnogReport_doc();
-					success = fileService.deleteFileByName(fileName);
-					if (success) {
-						existingCriteriaV.setCmagnogReport_doc("");
+						existingCriteriaV.setPrescribedDataDoc2("");
 						c5_repo.save(existingCriteriaV);
 						return true;
 					}
@@ -2205,27 +2369,43 @@ public class SSRServiceImpl implements SSRService {
 						c5_repo.save(existingCriteriaV);
 						return true;
 					}
-				case "institutionalDataTemplate_doc7":
-					fileName = existingCriteriaV.getInstitutionalDataTemplate_doc7();
+				case "addInfoDo2":
+					fileName = existingCriteriaV.getAddInfoDo2();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaV.setInstitutionalDataTemplate_doc7("");
+						existingCriteriaV.setAddInfoDo2("");
 						c5_repo.save(existingCriteriaV);
 						return true;
 					}
-				case "suporting_doc":
-					fileName = existingCriteriaV.getSuporting_doc();
+				case "addInfoDo3":
+					fileName = existingCriteriaV.getAddInfoDo3();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaV.setSuporting_doc("");
+						existingCriteriaV.setAddInfoDo3("");
 						c5_repo.save(existingCriteriaV);
 						return true;
 					}
-				case "addInfo_doc":
-					fileName = existingCriteriaV.getAddInfo_doc();
+				case "HEI_Annual_Audit_AlumniDoc":
+					fileName = existingCriteriaV.getHEI_Annual_Audit_AlumniDoc();
 					success = fileService.deleteFileByName(fileName);
 					if (success) {
-						existingCriteriaV.setAddInfo_doc("");
+						existingCriteriaV.setHEI_Annual_Audit_AlumniDoc("");
+						c5_repo.save(existingCriteriaV);
+						return true;
+					}
+				case "alumni_contributionsDoc":
+					fileName = existingCriteriaV.getAlumni_contributionsDoc();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaV.setAlumni_contributionsDoc("");
+						c5_repo.save(existingCriteriaV);
+						return true;
+					}
+				case "addInfo_doc8":
+					fileName = existingCriteriaV.getAddInfo_doc8();
+					success = fileService.deleteFileByName(fileName);
+					if (success) {
+						existingCriteriaV.setAddInfo_doc8("");
 						c5_repo.save(existingCriteriaV);
 						return true;
 					}

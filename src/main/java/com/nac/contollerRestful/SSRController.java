@@ -344,19 +344,19 @@ public class SSRController {
 	}
 
 //    doc's controller
-	@PostMapping("/document-programInstructional/{SsrId}")
-	public ResponseEntity<String> uploadDocument(@PathVariable("SsrId") long SsrId,
-			@RequestParam("pdf") MultipartFile pdf) {
-
-		boolean isDocumentSaved = ssrService.saveDocumentOfProgramInstructional(SsrId, pdf);
-		String fieldName = "programCourseInstDataDoc";
-		if (isDocumentSaved) {
-			String documentName = fileService.waitUntilDocumentNameIsSet(ExtendedProfileSSR.class, SsrId, fieldName);
-			return ResponseEntity.ok(documentName);
-		} else {
-			return ResponseEntity.badRequest().body("Failed to save document");
-		}
-	}
+//	@PostMapping("/document-programInstructional/{SsrId}")
+//	public ResponseEntity<String> uploadDocument(@PathVariable("SsrId") long SsrId,
+//			@RequestParam("pdf") MultipartFile pdf) {
+//
+//		boolean isDocumentSaved = ssrService.saveDocumentOfProgramInstructional(SsrId, pdf);
+//		String fieldName = "programCourseInstDataDoc";
+//		if (isDocumentSaved) {
+//			String documentName = fileService.waitUntilDocumentNameIsSet(ExtendedProfileSSR.class, SsrId, fieldName);
+//			return ResponseEntity.ok(documentName);
+//		} else {
+//			return ResponseEntity.badRequest().body("Failed to save document");
+//		}
+//	}
 
 	@PostMapping("{SsrId}/document-programInstructional")
 	public ResponseEntity<?> removeFileofHeadOfInstution(@PathVariable long SsrId) {

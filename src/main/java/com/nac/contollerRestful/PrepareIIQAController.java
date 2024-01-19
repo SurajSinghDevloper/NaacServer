@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import com.nac.model.IIQA.AffiliatingUniversity;
+import com.nac.model.IIQA.UniversityRecoginsed;
+import com.nac.model.SSR.ExtendedProfileSSR;
 import com.nac.model.IIQA.CollegeProgramBySRA;
 import com.nac.model.IIQA.DetailsOfStaffOfCollege;
 import com.nac.model.IIQA.DetailsOfStudentOfCollege;
@@ -72,7 +73,7 @@ public class PrepareIIQAController {
 	public ResponseEntity<?> deleteAffiliatingUniversity(@PathVariable Long affiliatingUniversityId
 			) {
 		
-			boolean deleted = iiqaService.deleteAffiliatingUniversity(affiliatingUniversityId);
+			boolean deleted = iiqaService.deleteRecognisedUniv(affiliatingUniversityId);
 			if (deleted) {
 				return ResponseEntity.ok("Affiliating University deleted successfully");
 			} else {
@@ -112,16 +113,10 @@ public class PrepareIIQAController {
 			}
 	}
 
-	@PostMapping("{prepareIIQA_ID}/affiliating-universities")
-	public ResponseEntity<?> affiliatingUniversity(@RequestParam("state") String state,
-			@PathVariable long prepareIIQA_ID, @RequestParam("universityName") String universityName) {
-			AffiliatingUniversity univ = new AffiliatingUniversity();
-			univ.setState(state);
-			univ.setPrepareIIQA_ID(prepareIIQA_ID);
-			univ.setUniversityName(universityName);
-
-			iiqaService.affiliating_University(univ, prepareIIQA_ID);
-
+	@PostMapping("{prepareIIQA_ID}/recognised-universities")
+	public ResponseEntity<?> recognisedUniversity(@ModelAttribute UniversityRecoginsed univ,
+			@PathVariable long prepareIIQA_ID) {
+			iiqaService.recognised_University(univ);
 			if (univ != null) {
 				return ResponseEntity.status(201).body(univ);
 			} 
@@ -129,13 +124,13 @@ public class PrepareIIQAController {
 
 	}
 
-	@PostMapping("upload-document-affiliating-universities")
-	public ResponseEntity<?> uploadDocumentOfaffiliatingUniversity(
-			@RequestParam("AffiliatingUniversityId") Long AffiliatingUniversityId,
+	@PostMapping("upload-document-recog-universities")
+	public ResponseEntity<?> uploadDocumentOfrecogUniversity(
+			@RequestParam("UniversityRecoginsedId") Long UniversityRecoginsedId,
 			@RequestParam("pdf") MultipartFile pdf) {
-			boolean success = iiqaService.affiliating_Univ_Document(pdf, AffiliatingUniversityId);
+			boolean success = iiqaService.recognised_Univ_Document(pdf, UniversityRecoginsedId);
 			if (success) {
-				String documentName = fileService.waitUntilDocumentNameIsSet(AffiliatingUniversityId);
+				String documentName = fileService.waitUntilDocumentNameIsSet(UniversityRecoginsedId);
 
 				if (!documentName.isEmpty()) {
 					return ResponseEntity.status(200).body(documentName);
@@ -149,7 +144,7 @@ public class PrepareIIQAController {
 			}
 	}
 
-	@GetMapping("{prepareIIQA_ID}/getAffiliation")
+	@GetMapping("{prepareIIQA_ID}/recongnised-univ")
 	public ResponseEntity<List<Map.Entry<String, List<Object>>>> getCombinedResults(@PathVariable long prepareIIQA_ID) {
 			List<Map.Entry<String, List<Object>>> combinedResults = iiqaService.combineResults(prepareIIQA_ID);
 			if(combinedResults != null) {
@@ -158,10 +153,10 @@ public class PrepareIIQAController {
 		return ResponseEntity.noContent().build();
 	}
 
-	@GetMapping("{prepareIIQA_ID}/allAffiliatingUniversity")
+	@GetMapping("{prepareIIQA_ID}/all-recog-university")
 	public ResponseEntity<?> getAllAffiliatingUniversityByPrepareIIQAID(@PathVariable long prepareIIQA_ID) {
-			List<AffiliatingUniversity> universities = iiqaService
-					.getAllAffiliatingUniversityByPrepareIIQAID(prepareIIQA_ID);
+			List<UniversityRecoginsed> universities = iiqaService
+					.getAllRecogUnivByPrepareIIQAID(prepareIIQA_ID);
 
 			if (!universities.isEmpty()) {
 				return ResponseEntity.ok(universities);
@@ -171,8 +166,8 @@ public class PrepareIIQAController {
 	}
 
 	@PostMapping("{id}/remove-file")
-	public ResponseEntity<?> removeFileOfAffliatingUniversity(@PathVariable long id) {	
-			boolean success = iiqaService.deleteAffiliating_Univ_Document(id);
+	public ResponseEntity<?> removeFileOfRecogUniversity(@PathVariable long id) {	
+			boolean success = iiqaService.deleteRecog_Univ_Document(id);
 			if (success) {
 				return ResponseEntity.status(200).body("Deleted Successfully");
 			} else {
@@ -510,7 +505,9 @@ public class PrepareIIQAController {
 			piiqa.setAlternateFacultyMobile(iiqa.getAlternateFacultyMobile());
 			piiqa.setAlternateFacultyEmail(iiqa.getAlternateFacultyEmail());
 			piiqa.setAlternateFacultyAltenateEmail(iiqa.getAlternateFacultyAltenateEmail());
-			piiqa.setIsSpecificTypeOfCollege(iiqa.getIsSpecificTypeOfCollege());
+			piiqa.setSpecificTypeOfUniv(iiqa.getSpecificTypeOfUniv());
+			piiqa.setNatureOfCollege(iiqa.getNatureOfCollege());
+			piiqa.setUnivType(iiqa.getUnivType());
 			PrepareIIQA piqa = iiqaService.saveProfileInformation(piiqa);
 			if(piqa!=null) {
 				return ResponseEntity.ok(piiqa);
@@ -541,7 +538,30 @@ public class PrepareIIQAController {
 	            return ResponseEntity.notFound().build();
 	        }
 	}
+	
+	@PostMapping("/document-nature-college/{prepareIIqaID}")
+	public ResponseEntity<String> uploadDocumentStuRevAppInst(@PathVariable("prepareIIqaID") long prepareIIqaID,
+			@RequestParam("pdf") MultipartFile pdf) {
 
+		boolean isDocumentSaved = iiqaService.saveDocumentOfNatureOfCollege(prepareIIqaID, pdf);
+		String fieldName = "stuRevalApplicationsInstDataDoc";
+		if (isDocumentSaved) {
+			String documentName = fileService.waitUntilDocumentNameIsSet(ExtendedProfileSSR.class, prepareIIqaID, fieldName);
+			return ResponseEntity.ok(documentName);
+		} else {
+			return ResponseEntity.badRequest().body("Failed to save document");
+		}
+	}
+
+	@PostMapping("{prepareIIqaID}/document-nature-college")
+	public ResponseEntity<?> removeFileofStuRevAppInst(@PathVariable long prepareIIqaID) {
+		boolean success = iiqaService.deleteDocumentOfNatureOfCollege(prepareIIqaID);
+		if (success) {
+			return ResponseEntity.status(200).body("Deleted Successfully");
+		} else {
+			return ResponseEntity.status(400).body("something went wrong try again");
+		}
+	}
 	
 	
 	@PostMapping("updateIn-IIQA_DateOfRecognitionByUGCAndDocument")

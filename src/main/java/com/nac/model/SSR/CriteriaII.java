@@ -32,14 +32,12 @@ public class CriteriaII {
 	private String noSanctionedSeatsY4;
 	private String noSanctionedSeatsY5;
 	
-	private String institutionalDataTemplate_doc;//
+	private String instiPresDataTemplate_doc;//
 	
-	private String instDataTemplate_doc;
-	private String intakeSanctionApproval_doc;
-	private String finalAdmissionList_doc;
-	
+	private String instDataTemplate_doc;//
+	private String intakeSanctionApproval_doc;//
+	private String finalAdmissionList_doc;//
 	private String finalAdmissionList_doc2;//
-	
 	private String linksForAnyOtherRelevant;
 	
 //	2.1.2
@@ -57,13 +55,17 @@ public class CriteriaII {
 	private String reservedSeatsByY4;
 	private String reservedSeatsByY5;
 	
-	private String instDataTemplate_doc2;
-	private String govtLetter_doc;
-	private String finalAdmissionList;
-	private String linkForOtherRelivantDoc;
+	private String instDataTemplate_doc2;//
+	private String govtLetter_doc;//
+	private String finalAdmiList_Doc60;//change
+	private String relevantDocLink;//
 	
 //	2.2.1
-	private String stuFTRatio;
+	private String studentAssessmentAndPrograms;//change
+	private String additionalInfo_doc;//
+	private String additionalInfoLink;
+	private String fullTimeTeachRation;//change
+
 	private String numStudentsByY1;
 	private String numStudentsByY2;
 	private String numStudentsByY3;
@@ -75,13 +77,17 @@ public class CriteriaII {
 	private String numFTTeachersY3;
 	private String numFTTeachersY4;
 	private String numFTTeachersY5;
-	private String additionalInfo_doc;
-	private String additionalInfoLink;
+	private String additionalInfo_Doc80;//change
+	private String additionalInfoLink9;//change
+
 	
 //	2.3.1
 	private String stdCentricMethods;
-	private String additionalInfo_doc2;
+	private String additionalInfo_doc86;//
 	private String additionalInfoLink2;
+	private String mentorMenteeScheme;//changed
+	private String additionalInfo_Doc2;//changed
+	private String listOfActvMentor_Doc;//changed
 	
 //	2.4.1	
 	private String FTPTRatioLast5Years;
@@ -90,14 +96,14 @@ public class CriteriaII {
 	private String ftTeachersByY3;
 	private String ftTeachersByY4;
 	private String ftTeachersByY5;
-
+	private String sanctionedPostsMap_doc;//
+	private String additionalInfoLink3;
 	private String numPostsByY1;
 	private String numPostsByY2;
 	private String numPostsByY3;
 	private String numPostsByY4;
 	private String numPostsByY5;
-	private String sanctionedPostsMap_doc;
-	private String additionalInfoLink3;
+
 	
  
 //	2.4.2 
@@ -115,21 +121,55 @@ public class CriteriaII {
 	private String noFTTY4;
 	private String noFTTY5;
 	
-	private String instDataTemplate_doc3;
-	private String facultyPhDList_doc;
-	private String ugcRecognizedPhdDegrees_doc;
+	private String instDataTemplate_doc3;//
 	private String additionalInfoLink4;
 //	2.5.1	
-	private String transAssessGrievSys;
-	private String additionalInfo_doc3;
+	private String avgDaysFromExamToResults;//changed
+	private String avgDaysFromExamToResultsY1;//changed
+	private String avgDaysFromExamToResultsY2;//changed
+	private String avgDaysFromExamToResultsY3;//changed
+	private String avgDaysFromExamToResultsY4;//changed
+	private String avgDaysFromExamToResultsY5;//changed
+	private String additionalInfo_doc3;//
 	private String additionalInfoLink5;
+	private String evalComplaintsPercentage;//changed
+	private String complaintsPerYear1;//changed
+	private String complaintsPerYear2;//changed
+	private String complaintsPerYear3;//changed
+	private String complaintsPerYear4;//changed
+	private String complaintsPerYear5;//changed
+	private String stuAppearedInExamLastY1;//changed
+	private String stuAppearedInExamLastY2;//changed
+	private String stuAppearedInExamLastY3;//changed
+	private String stuAppearedInExamLastY4;//changed
+	private String stuAppearedInExamLastY5;//changed
+	private String instDataTemplate_doc5;//changed
+	private String relevantDocLink3;//changed
+	private String automExamStatus;// changed 
+	private String automationType;//changed
+	private String dataTemp_Doc;//changed
+	private String addItionalInfoLinks;//changed
+
+
+
 //	2.6.1
 	private String POsCOsListOutcome;
-	private String additionalInfo_doc4;
+	private String additionalInfo_doc4;//
 	private String additionalInfoLink6;
+	private String cosForAllCoursesDoc;//changed
 //	2.6.2
-	public String evaluatedPOsCOs;
-	private String additionalInfo_doc5;
+	public String passPercentExcludBack;//changed
+	public String passedFinalYearStudentsY1;//changed
+	public String passedFinalYearStudentsY2;//changed
+	public String passedFinalYearStudentsY3;//changed
+	public String passedFinalYearStudentsY4;//changed
+	public String passedFinalYearStudentsY5;//changed
+	public String yearWiseOutgoingStudentsY1;//chnaged
+	public String yearWiseOutgoingStudentsY2;//chnaged
+	public String yearWiseOutgoingStudentsY3;//chnaged
+	public String yearWiseOutgoingStudentsY4;//chnaged
+	public String yearWiseOutgoingStudentsY5;//chnaged
+	private String additionalInfo_doc5;//
 	private String additionalInfoLink7;
 //	2.6.3
 	private String passPercentageLast5Years;
@@ -146,12 +186,16 @@ public class CriteriaII {
 	private String numFinalYearStudentsByY4;
 	private String numFinalYearStudentsByY5;
 	
-	private String instDataTemplate_doc4;
-	private String coeReportPassPercentage_doc;
-	private String coePassPercentReport_doc;
+	private String dataTemplate_doc;//
+	private String coeReportPassPercentage_doc;//
+	private String coePassPercentReport_doc;//
 	private String additionalInfoLink8;
+	// 2.7
+	private String onlineStudentSurveyTL;//chnaged
+	private String additionalIfoDoc;//changed
+	private String currentlyEnrolledStudDoc;//chnaged
 
-	
+
 	public long getCriteriaII_Id() {
 		return CriteriaII_Id;
 	}
@@ -242,6 +286,14 @@ public class CriteriaII {
 	public void setNoSanctionedSeatsY5(String noSanctionedSeatsY5) {
 		this.noSanctionedSeatsY5 = noSanctionedSeatsY5;
 	}
+	
+
+	public String getInstiPresDataTemplate_doc() {
+		return instiPresDataTemplate_doc;
+	}
+	public void setInstiPresDataTemplate_doc(String instiPresDataTemplate_doc) {
+		this.instiPresDataTemplate_doc = instiPresDataTemplate_doc;
+	}
 	public String getInstDataTemplate_doc() {
 		return instDataTemplate_doc;
 	}
@@ -260,24 +312,17 @@ public class CriteriaII {
 	public void setFinalAdmissionList_doc(String finalAdmissionList_doc) {
 		this.finalAdmissionList_doc = finalAdmissionList_doc;
 	}
-	public String getLinksForAnyOtherRelevant() {
-		return linksForAnyOtherRelevant;
-	}
-	public void setLinksForAnyOtherRelevant(String linksForAnyOtherRelevant) {
-		this.linksForAnyOtherRelevant = linksForAnyOtherRelevant;
-	}
-	
-	public String getInstitutionalDataTemplate_doc() {
-		return institutionalDataTemplate_doc;
-	}
-	public void setInstitutionalDataTemplate_doc(String institutionalDataTemplate_doc) {
-		this.institutionalDataTemplate_doc = institutionalDataTemplate_doc;
-	}
 	public String getFinalAdmissionList_doc2() {
 		return finalAdmissionList_doc2;
 	}
 	public void setFinalAdmissionList_doc2(String finalAdmissionList_doc2) {
 		this.finalAdmissionList_doc2 = finalAdmissionList_doc2;
+	}
+	public String getLinksForAnyOtherRelevant() {
+		return linksForAnyOtherRelevant;
+	}
+	public void setLinksForAnyOtherRelevant(String linksForAnyOtherRelevant) {
+		this.linksForAnyOtherRelevant = linksForAnyOtherRelevant;
 	}
 	public String getReservedSeatsPercentageLast5Years() {
 		return reservedSeatsPercentageLast5Years;
@@ -357,23 +402,42 @@ public class CriteriaII {
 	public void setGovtLetter_doc(String govtLetter_doc) {
 		this.govtLetter_doc = govtLetter_doc;
 	}
-	public String getFinalAdmissionList() {
-		return finalAdmissionList;
+	
+	public String getFinalAdmiList_Doc60() {
+		return finalAdmiList_Doc60;
 	}
-	public void setFinalAdmissionList(String finalAdmissionList) {
-		this.finalAdmissionList = finalAdmissionList;
+	public void setFinalAdmiList_Doc60(String finalAdmiList_Doc60) {
+		this.finalAdmiList_Doc60 = finalAdmiList_Doc60;
 	}
-	public String getLinkForOtherRelivantDoc() {
-		return linkForOtherRelivantDoc;
+	public String getRelevantDocLink() {
+		return relevantDocLink;
 	}
-	public void setLinkForOtherRelivantDoc(String linkForOtherRelivantDoc) {
-		this.linkForOtherRelivantDoc = linkForOtherRelivantDoc;
+	public void setRelevantDocLink(String relevantDocLink) {
+		this.relevantDocLink = relevantDocLink;
 	}
-	public String getStuFTRatio() {
-		return stuFTRatio;
+	public String getStudentAssessmentAndPrograms() {
+		return studentAssessmentAndPrograms;
 	}
-	public void setStuFTRatio(String stuFTRatio) {
-		this.stuFTRatio = stuFTRatio;
+	public void setStudentAssessmentAndPrograms(String studentAssessmentAndPrograms) {
+		this.studentAssessmentAndPrograms = studentAssessmentAndPrograms;
+	}
+	public String getAdditionalInfo_doc() {
+		return additionalInfo_doc;
+	}
+	public void setAdditionalInfo_doc(String additionalInfo_doc) {
+		this.additionalInfo_doc = additionalInfo_doc;
+	}
+	public String getAdditionalInfoLink() {
+		return additionalInfoLink;
+	}
+	public void setAdditionalInfoLink(String additionalInfoLink) {
+		this.additionalInfoLink = additionalInfoLink;
+	}
+	public String getFullTimeTeachRation() {
+		return fullTimeTeachRation;
+	}
+	public void setFullTimeTeachRation(String fullTimeTeachRation) {
+		this.fullTimeTeachRation = fullTimeTeachRation;
 	}
 	public String getNumStudentsByY1() {
 		return numStudentsByY1;
@@ -435,17 +499,17 @@ public class CriteriaII {
 	public void setNumFTTeachersY5(String numFTTeachersY5) {
 		this.numFTTeachersY5 = numFTTeachersY5;
 	}
-	public String getAdditionalInfo_doc() {
-		return additionalInfo_doc;
+	public String getAdditionalInfo_Doc80() {
+		return additionalInfo_Doc80;
 	}
-	public void setAdditionalInfo_doc(String additionalInfo_doc) {
-		this.additionalInfo_doc = additionalInfo_doc;
+	public void setAdditionalInfo_Doc80(String additionalInfo_Doc80) {
+		this.additionalInfo_Doc80 = additionalInfo_Doc80;
 	}
-	public String getAdditionalInfoLink() {
-		return additionalInfoLink;
+	public String getAdditionalInfoLink9() {
+		return additionalInfoLink9;
 	}
-	public void setAdditionalInfoLink(String additionalInfoLink) {
-		this.additionalInfoLink = additionalInfoLink;
+	public void setAdditionalInfoLink9(String additionalInfoLink9) {
+		this.additionalInfoLink9 = additionalInfoLink9;
 	}
 	public String getStdCentricMethods() {
 		return stdCentricMethods;
@@ -453,17 +517,35 @@ public class CriteriaII {
 	public void setStdCentricMethods(String stdCentricMethods) {
 		this.stdCentricMethods = stdCentricMethods;
 	}
-	public String getAdditionalInfo_doc2() {
-		return additionalInfo_doc2;
+	public String getAdditionalInfo_doc86() {
+		return additionalInfo_doc86;
 	}
-	public void setAdditionalInfo_doc2(String additionalInfo_doc2) {
-		this.additionalInfo_doc2 = additionalInfo_doc2;
+	public void setAdditionalInfo_doc86(String additionalInfo_doc86) {
+		this.additionalInfo_doc86 = additionalInfo_doc86;
 	}
 	public String getAdditionalInfoLink2() {
 		return additionalInfoLink2;
 	}
 	public void setAdditionalInfoLink2(String additionalInfoLink2) {
 		this.additionalInfoLink2 = additionalInfoLink2;
+	}
+	public String getMentorMenteeScheme() {
+		return mentorMenteeScheme;
+	}
+	public void setMentorMenteeScheme(String mentorMenteeScheme) {
+		this.mentorMenteeScheme = mentorMenteeScheme;
+	}
+	public String getAdditionalInfo_Doc2() {
+		return additionalInfo_Doc2;
+	}
+	public void setAdditionalInfo_Doc2(String additionalInfo_Doc2) {
+		this.additionalInfo_Doc2 = additionalInfo_Doc2;
+	}
+	public String getListOfActvMentor_Doc() {
+		return listOfActvMentor_Doc;
+	}
+	public void setListOfActvMentor_Doc(String listOfActvMentor_Doc) {
+		this.listOfActvMentor_Doc = listOfActvMentor_Doc;
 	}
 	public String getFTPTRatioLast5Years() {
 		return FTPTRatioLast5Years;
@@ -501,6 +583,18 @@ public class CriteriaII {
 	public void setFtTeachersByY5(String ftTeachersByY5) {
 		this.ftTeachersByY5 = ftTeachersByY5;
 	}
+	public String getSanctionedPostsMap_doc() {
+		return sanctionedPostsMap_doc;
+	}
+	public void setSanctionedPostsMap_doc(String sanctionedPostsMap_doc) {
+		this.sanctionedPostsMap_doc = sanctionedPostsMap_doc;
+	}
+	public String getAdditionalInfoLink3() {
+		return additionalInfoLink3;
+	}
+	public void setAdditionalInfoLink3(String additionalInfoLink3) {
+		this.additionalInfoLink3 = additionalInfoLink3;
+	}
 	public String getNumPostsByY1() {
 		return numPostsByY1;
 	}
@@ -530,18 +624,6 @@ public class CriteriaII {
 	}
 	public void setNumPostsByY5(String numPostsByY5) {
 		this.numPostsByY5 = numPostsByY5;
-	}
-	public String getSanctionedPostsMap_doc() {
-		return sanctionedPostsMap_doc;
-	}
-	public void setSanctionedPostsMap_doc(String sanctionedPostsMap_doc) {
-		this.sanctionedPostsMap_doc = sanctionedPostsMap_doc;
-	}
-	public String getAdditionalInfoLink3() {
-		return additionalInfoLink3;
-	}
-	public void setAdditionalInfoLink3(String additionalInfoLink3) {
-		this.additionalInfoLink3 = additionalInfoLink3;
 	}
 	public String getPercFTTeachersLast5Years() {
 		return percFTTeachersLast5Years;
@@ -615,29 +697,47 @@ public class CriteriaII {
 	public void setInstDataTemplate_doc3(String instDataTemplate_doc3) {
 		this.instDataTemplate_doc3 = instDataTemplate_doc3;
 	}
-	public String getFacultyPhDList_doc() {
-		return facultyPhDList_doc;
-	}
-	public void setFacultyPhDList_doc(String facultyPhDList_doc) {
-		this.facultyPhDList_doc = facultyPhDList_doc;
-	}
-	public String getUgcRecognizedPhdDegrees_doc() {
-		return ugcRecognizedPhdDegrees_doc;
-	}
-	public void setUgcRecognizedPhdDegrees_doc(String ugcRecognizedPhdDegrees_doc) {
-		this.ugcRecognizedPhdDegrees_doc = ugcRecognizedPhdDegrees_doc;
-	}
 	public String getAdditionalInfoLink4() {
 		return additionalInfoLink4;
 	}
 	public void setAdditionalInfoLink4(String additionalInfoLink4) {
 		this.additionalInfoLink4 = additionalInfoLink4;
 	}
-	public String getTransAssessGrievSys() {
-		return transAssessGrievSys;
+	public String getAvgDaysFromExamToResults() {
+		return avgDaysFromExamToResults;
 	}
-	public void setTransAssessGrievSys(String transAssessGrievSys) {
-		this.transAssessGrievSys = transAssessGrievSys;
+	public void setAvgDaysFromExamToResults(String avgDaysFromExamToResults) {
+		this.avgDaysFromExamToResults = avgDaysFromExamToResults;
+	}
+	public String getAvgDaysFromExamToResultsY1() {
+		return avgDaysFromExamToResultsY1;
+	}
+	public void setAvgDaysFromExamToResultsY1(String avgDaysFromExamToResultsY1) {
+		this.avgDaysFromExamToResultsY1 = avgDaysFromExamToResultsY1;
+	}
+	public String getAvgDaysFromExamToResultsY2() {
+		return avgDaysFromExamToResultsY2;
+	}
+	public void setAvgDaysFromExamToResultsY2(String avgDaysFromExamToResultsY2) {
+		this.avgDaysFromExamToResultsY2 = avgDaysFromExamToResultsY2;
+	}
+	public String getAvgDaysFromExamToResultsY3() {
+		return avgDaysFromExamToResultsY3;
+	}
+	public void setAvgDaysFromExamToResultsY3(String avgDaysFromExamToResultsY3) {
+		this.avgDaysFromExamToResultsY3 = avgDaysFromExamToResultsY3;
+	}
+	public String getAvgDaysFromExamToResultsY4() {
+		return avgDaysFromExamToResultsY4;
+	}
+	public void setAvgDaysFromExamToResultsY4(String avgDaysFromExamToResultsY4) {
+		this.avgDaysFromExamToResultsY4 = avgDaysFromExamToResultsY4;
+	}
+	public String getAvgDaysFromExamToResultsY5() {
+		return avgDaysFromExamToResultsY5;
+	}
+	public void setAvgDaysFromExamToResultsY5(String avgDaysFromExamToResultsY5) {
+		this.avgDaysFromExamToResultsY5 = avgDaysFromExamToResultsY5;
 	}
 	public String getAdditionalInfo_doc3() {
 		return additionalInfo_doc3;
@@ -650,6 +750,110 @@ public class CriteriaII {
 	}
 	public void setAdditionalInfoLink5(String additionalInfoLink5) {
 		this.additionalInfoLink5 = additionalInfoLink5;
+	}
+	public String getEvalComplaintsPercentage() {
+		return evalComplaintsPercentage;
+	}
+	public void setEvalComplaintsPercentage(String evalComplaintsPercentage) {
+		this.evalComplaintsPercentage = evalComplaintsPercentage;
+	}
+	public String getComplaintsPerYear1() {
+		return complaintsPerYear1;
+	}
+	public void setComplaintsPerYear1(String complaintsPerYear1) {
+		this.complaintsPerYear1 = complaintsPerYear1;
+	}
+	public String getComplaintsPerYear2() {
+		return complaintsPerYear2;
+	}
+	public void setComplaintsPerYear2(String complaintsPerYear2) {
+		this.complaintsPerYear2 = complaintsPerYear2;
+	}
+	public String getComplaintsPerYear3() {
+		return complaintsPerYear3;
+	}
+	public void setComplaintsPerYear3(String complaintsPerYear3) {
+		this.complaintsPerYear3 = complaintsPerYear3;
+	}
+	public String getComplaintsPerYear4() {
+		return complaintsPerYear4;
+	}
+	public void setComplaintsPerYear4(String complaintsPerYear4) {
+		this.complaintsPerYear4 = complaintsPerYear4;
+	}
+	public String getComplaintsPerYear5() {
+		return complaintsPerYear5;
+	}
+	public void setComplaintsPerYear5(String complaintsPerYear5) {
+		this.complaintsPerYear5 = complaintsPerYear5;
+	}
+	public String getStuAppearedInExamLastY1() {
+		return stuAppearedInExamLastY1;
+	}
+	public void setStuAppearedInExamLastY1(String stuAppearedInExamLastY1) {
+		this.stuAppearedInExamLastY1 = stuAppearedInExamLastY1;
+	}
+	public String getStuAppearedInExamLastY2() {
+		return stuAppearedInExamLastY2;
+	}
+	public void setStuAppearedInExamLastY2(String stuAppearedInExamLastY2) {
+		this.stuAppearedInExamLastY2 = stuAppearedInExamLastY2;
+	}
+	public String getStuAppearedInExamLastY3() {
+		return stuAppearedInExamLastY3;
+	}
+	public void setStuAppearedInExamLastY3(String stuAppearedInExamLastY3) {
+		this.stuAppearedInExamLastY3 = stuAppearedInExamLastY3;
+	}
+	public String getStuAppearedInExamLastY4() {
+		return stuAppearedInExamLastY4;
+	}
+	public void setStuAppearedInExamLastY4(String stuAppearedInExamLastY4) {
+		this.stuAppearedInExamLastY4 = stuAppearedInExamLastY4;
+	}
+	public String getStuAppearedInExamLastY5() {
+		return stuAppearedInExamLastY5;
+	}
+	public void setStuAppearedInExamLastY5(String stuAppearedInExamLastY5) {
+		this.stuAppearedInExamLastY5 = stuAppearedInExamLastY5;
+	}
+	public String getInstDataTemplate_doc5() {
+		return instDataTemplate_doc5;
+	}
+	public void setInstDataTemplate_doc5(String instDataTemplate_doc5) {
+		this.instDataTemplate_doc5 = instDataTemplate_doc5;
+	}
+	public String getRelevantDocLink3() {
+		return relevantDocLink3;
+	}
+	public void setRelevantDocLink3(String relevantDocLink3) {
+		this.relevantDocLink3 = relevantDocLink3;
+	}
+	public String getAutomExamStatus() {
+		return automExamStatus;
+	}
+	public void setAutomExamStatus(String automExamStatus) {
+		this.automExamStatus = automExamStatus;
+	}
+	public String getAutomationType() {
+		return automationType;
+	}
+	public void setAutomationType(String automationType) {
+		this.automationType = automationType;
+	}
+	
+
+	public String getDataTemp_Doc() {
+		return dataTemp_Doc;
+	}
+	public void setDataTemp_Doc(String dataTemp_Doc) {
+		this.dataTemp_Doc = dataTemp_Doc;
+	}
+	public String getAddItionalInfoLinks() {
+		return addItionalInfoLinks;
+	}
+	public void setAddItionalInfoLinks(String addItionalInfoLinks) {
+		this.addItionalInfoLinks = addItionalInfoLinks;
 	}
 	public String getPOsCOsListOutcome() {
 		return POsCOsListOutcome;
@@ -669,11 +873,77 @@ public class CriteriaII {
 	public void setAdditionalInfoLink6(String additionalInfoLink6) {
 		this.additionalInfoLink6 = additionalInfoLink6;
 	}
-	public String getEvaluatedPOsCOs() {
-		return evaluatedPOsCOs;
+	public String getCosForAllCoursesDoc() {
+		return cosForAllCoursesDoc;
 	}
-	public void setEvaluatedPOsCOs(String evaluatedPOsCOs) {
-		this.evaluatedPOsCOs = evaluatedPOsCOs;
+	public void setCosForAllCoursesDoc(String cosForAllCoursesDoc) {
+		this.cosForAllCoursesDoc = cosForAllCoursesDoc;
+	}
+	public String getPassPercentExcludBack() {
+		return passPercentExcludBack;
+	}
+	public void setPassPercentExcludBack(String passPercentExcludBack) {
+		this.passPercentExcludBack = passPercentExcludBack;
+	}
+	public String getPassedFinalYearStudentsY1() {
+		return passedFinalYearStudentsY1;
+	}
+	public void setPassedFinalYearStudentsY1(String passedFinalYearStudentsY1) {
+		this.passedFinalYearStudentsY1 = passedFinalYearStudentsY1;
+	}
+	public String getPassedFinalYearStudentsY2() {
+		return passedFinalYearStudentsY2;
+	}
+	public void setPassedFinalYearStudentsY2(String passedFinalYearStudentsY2) {
+		this.passedFinalYearStudentsY2 = passedFinalYearStudentsY2;
+	}
+	public String getPassedFinalYearStudentsY3() {
+		return passedFinalYearStudentsY3;
+	}
+	public void setPassedFinalYearStudentsY3(String passedFinalYearStudentsY3) {
+		this.passedFinalYearStudentsY3 = passedFinalYearStudentsY3;
+	}
+	public String getPassedFinalYearStudentsY4() {
+		return passedFinalYearStudentsY4;
+	}
+	public void setPassedFinalYearStudentsY4(String passedFinalYearStudentsY4) {
+		this.passedFinalYearStudentsY4 = passedFinalYearStudentsY4;
+	}
+	public String getPassedFinalYearStudentsY5() {
+		return passedFinalYearStudentsY5;
+	}
+	public void setPassedFinalYearStudentsY5(String passedFinalYearStudentsY5) {
+		this.passedFinalYearStudentsY5 = passedFinalYearStudentsY5;
+	}
+	public String getYearWiseOutgoingStudentsY1() {
+		return yearWiseOutgoingStudentsY1;
+	}
+	public void setYearWiseOutgoingStudentsY1(String yearWiseOutgoingStudentsY1) {
+		this.yearWiseOutgoingStudentsY1 = yearWiseOutgoingStudentsY1;
+	}
+	public String getYearWiseOutgoingStudentsY2() {
+		return yearWiseOutgoingStudentsY2;
+	}
+	public void setYearWiseOutgoingStudentsY2(String yearWiseOutgoingStudentsY2) {
+		this.yearWiseOutgoingStudentsY2 = yearWiseOutgoingStudentsY2;
+	}
+	public String getYearWiseOutgoingStudentsY3() {
+		return yearWiseOutgoingStudentsY3;
+	}
+	public void setYearWiseOutgoingStudentsY3(String yearWiseOutgoingStudentsY3) {
+		this.yearWiseOutgoingStudentsY3 = yearWiseOutgoingStudentsY3;
+	}
+	public String getYearWiseOutgoingStudentsY4() {
+		return yearWiseOutgoingStudentsY4;
+	}
+	public void setYearWiseOutgoingStudentsY4(String yearWiseOutgoingStudentsY4) {
+		this.yearWiseOutgoingStudentsY4 = yearWiseOutgoingStudentsY4;
+	}
+	public String getYearWiseOutgoingStudentsY5() {
+		return yearWiseOutgoingStudentsY5;
+	}
+	public void setYearWiseOutgoingStudentsY5(String yearWiseOutgoingStudentsY5) {
+		this.yearWiseOutgoingStudentsY5 = yearWiseOutgoingStudentsY5;
 	}
 	public String getAdditionalInfo_doc5() {
 		return additionalInfo_doc5;
@@ -753,11 +1023,12 @@ public class CriteriaII {
 	public void setNumFinalYearStudentsByY5(String numFinalYearStudentsByY5) {
 		this.numFinalYearStudentsByY5 = numFinalYearStudentsByY5;
 	}
-	public String getInstDataTemplate_doc4() {
-		return instDataTemplate_doc4;
+	
+	public String getDataTemplate_doc() {
+		return dataTemplate_doc;
 	}
-	public void setInstDataTemplate_doc4(String instDataTemplate_doc4) {
-		this.instDataTemplate_doc4 = instDataTemplate_doc4;
+	public void setDataTemplate_doc(String dataTemplate_doc) {
+		this.dataTemplate_doc = dataTemplate_doc;
 	}
 	public String getCoeReportPassPercentage_doc() {
 		return coeReportPassPercentage_doc;
@@ -777,6 +1048,27 @@ public class CriteriaII {
 	public void setAdditionalInfoLink8(String additionalInfoLink8) {
 		this.additionalInfoLink8 = additionalInfoLink8;
 	}
+	public String getOnlineStudentSurveyTL() {
+		return onlineStudentSurveyTL;
+	}
+	public void setOnlineStudentSurveyTL(String onlineStudentSurveyTL) {
+		this.onlineStudentSurveyTL = onlineStudentSurveyTL;
+	}
+	public String getAdditionalIfoDoc() {
+		return additionalIfoDoc;
+	}
+	public void setAdditionalIfoDoc(String additionalIfoDoc) {
+		this.additionalIfoDoc = additionalIfoDoc;
+	}
+	public String getCurrentlyEnrolledStudDoc() {
+		return currentlyEnrolledStudDoc;
+	}
+	public void setCurrentlyEnrolledStudDoc(String currentlyEnrolledStudDoc) {
+		this.currentlyEnrolledStudDoc = currentlyEnrolledStudDoc;
+	}
+	
+	
+	
 	
 	
 }

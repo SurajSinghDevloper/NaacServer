@@ -28,6 +28,7 @@ public class NewCollegeRegistrationServiceImpl implements NewCollegeRegistration
 
 	@Override
 	public NewCollegeRegistration saveclgRegistration(NewCollegeRegistration model) {
+		model.setRole("ROLE_COLLEGE");
 		// TODO Auto-generated method stub
 		return registrationRepo.save(model);
 	}

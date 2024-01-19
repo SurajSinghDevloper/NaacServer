@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.nac.model.NewCollegeRegistration;
-import com.nac.model.IIQA.AffiliatingUniversity;
+import com.nac.model.IIQA.UniversityRecoginsed;
 import com.nac.model.IIQA.CollegeProgramBySRA;
 import com.nac.model.IIQA.DetailsOfStaffOfCollege;
 import com.nac.model.IIQA.DetailsOfStudentOfCollege;
@@ -21,7 +21,7 @@ import com.nac.model.IIQA.PrepareIIQA;
 import com.nac.model.IIQA.ProgramRunByCollege;
 import com.nac.model.IIQA.SraList;
 import com.nac.model.SSR.SSR;
-import com.nac.repository.AffiliatingUniversityRepo;
+import com.nac.repository.UniversityRecoginsedRepo;
 import com.nac.repository.CollegeProgramBySRARepo;
 import com.nac.repository.DetailsOfStaffOfCollegeRepo;
 import com.nac.repository.DetailsOfStudentOfCollegeRepo;
@@ -40,7 +40,7 @@ public class PrepareIIQAServiceImpl implements PrepareIIQAService {
 	PrepareIIQARepo iiqaRepo;
 
 	@Autowired
-	AffiliatingUniversityRepo affiliRepo;
+	UniversityRecoginsedRepo univRecogRepo;
 
 	@Autowired
 	FileUpload fileService;
@@ -119,19 +119,20 @@ public class PrepareIIQAServiceImpl implements PrepareIIQAService {
 	}
 
 	@Override
-	public void affiliating_University(AffiliatingUniversity affUniv, long piiqa) {
+	public void recognised_University(UniversityRecoginsed recogUniv) {
 		// TODO Auto-generated method stub
-		PrepareIIQA iiqa = getPrepareIIQAById(piiqa);
-		iiqa.setIsAffiliated("TRUE");
+		PrepareIIQA iiqa = getPrepareIIQAById(recogUniv.getPrepareIIQA_ID());
+		iiqa.setIsRecognised("TRUE");
 		iiqaRepo.save(iiqa);
-		affiliRepo.save(affUniv);
+		univRecogRepo.save(recogUniv);
 	}
 
 	@Override
-	public boolean deleteAffiliatingUniversity(Long id) {
-		AffiliatingUniversity au = affiliRepo.findByAffiliatingUniversityId(id);
+	public boolean deleteRecognisedUniv(Long id) {
+//		UniversityRecoginsed au = univRecogRepo.findByAffiliatingUniversityId(id);  deleteRecognisedUniv
+		UniversityRecoginsed au = univRecogRepo.findById(id).get();
 		if (au != null) {
-			affiliRepo.delete(au);
+			univRecogRepo.delete(au);
 			return true;
 		}
 		return false;
@@ -157,12 +158,12 @@ public class PrepareIIQAServiceImpl implements PrepareIIQAService {
 	}
 
 	@Override
-	public boolean affiliating_Univ_Document(MultipartFile pdf, Long AffiliatingUniversityId) {
+	public boolean recognised_Univ_Document(MultipartFile pdf, Long recognisedUnivId) {
 		try {
-			AffiliatingUniversity univ = affiliRepo.getOne(AffiliatingUniversityId);
+			UniversityRecoginsed univ = univRecogRepo.findById(recognisedUnivId).get();
 			String fileName = fileService.uploadFile(pdf);
-			univ.setDocumentName(fileName);
-			affiliRepo.save(univ);
+			univ.setCampusApprovalDoc(fileName);
+			univRecogRepo.save(univ);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -171,14 +172,14 @@ public class PrepareIIQAServiceImpl implements PrepareIIQAService {
 	}
 
 	@Override
-	public boolean deleteAffiliating_Univ_Document(Long AffiliatingUniversityId) {
-		AffiliatingUniversity univ = affiliRepo.getById(AffiliatingUniversityId);
+	public boolean deleteRecog_Univ_Document(Long recognisedUnivId) {
+		UniversityRecoginsed univ = univRecogRepo.findById(recognisedUnivId).get();
 		if (univ != null) {
-			String docName = univ.getDocumentName();
+			String docName = univ.getCampusApprovalDoc();
 			boolean success = fileService.deleteFileByName(docName);
 			if (success) {
-				univ.setDocumentName("");
-				affiliRepo.save(univ);
+				univ.setCampusApprovalDoc("");
+				univRecogRepo.save(univ);
 				return true;
 			} else {
 				return false;
@@ -191,17 +192,17 @@ public class PrepareIIQAServiceImpl implements PrepareIIQAService {
 
 	@Override
 	public boolean delete_affiliating_University(long affiliatingUniversityId) {
-		AffiliatingUniversity univ = affiliRepo.getById(affiliatingUniversityId);
+		UniversityRecoginsed univ = univRecogRepo.getById(affiliatingUniversityId);
 		if (univ != null) {
-			affiliRepo.delete(univ);
+			univRecogRepo.delete(univ);
 			return true;
 		}
 		return false;
 	}
 
 	@Override
-	public List<AffiliatingUniversity> getAllAffiliatingUniversityByPrepareIIQAID(long prepareIIQA_ID) {
-		return affiliRepo.findByPrepareIIQAID(prepareIIQA_ID);
+	public List<UniversityRecoginsed> getAllRecogUnivByPrepareIIQAID(long prepareIIQA_ID) {
+		return univRecogRepo.findByPrepareIIQAID(prepareIIQA_ID);
 	}
 
 	@Override
@@ -236,13 +237,13 @@ public class PrepareIIQAServiceImpl implements PrepareIIQAService {
 
 	@Override
 	public List<Map.Entry<String, List<Object>>> combineResults(long prepareIIQA_ID) {
-		List<AffiliatingUniversity> affiliatingUniversities = getAllAffiliatingUniversityByPrepareIIQAID(
+		List<UniversityRecoginsed> recognisedUniversities = getAllRecogUnivByPrepareIIQAID(
 				prepareIIQA_ID);
 		List<SraList> collegeProgramSraList = sraListRepo.findByPrepareIIQA(prepareIIQA_ID);
 
 		// Create a Map to group objects by type
 		Map<String, List<Object>> groupedObjects = new HashMap<>();
-		groupedObjects.put("AffiliatingUniversity", new ArrayList<>(affiliatingUniversities));
+		groupedObjects.put("recognisedUniv", new ArrayList<>(recognisedUniversities));
 		groupedObjects.put("SraList", new ArrayList<>(collegeProgramSraList));
 
 		// Convert the Map entries to a list of Map.Entry objects
@@ -422,14 +423,78 @@ public class PrepareIIQAServiceImpl implements PrepareIIQAService {
 	@Override
 	public PrepareIIQA updateNaturesOfCollege(long prepareIIqaID, PrepareIIQA noc) {
 		PrepareIIQA iiqa = getPrepareIIQAById(prepareIIqaID);
-			iiqa.setNatureOfCollegeConstitiuent(noc.isNatureOfCollegeConstitiuent());
-	        iiqa.setNatureOfCollegeGoverment(noc.isNatureOfCollegeGoverment());
-	        iiqa.setNatureOfCollegeSelfFinancing(noc.isNatureOfCollegeSelfFinancing());
-	        iiqa.setNatureOfCollegeGrantAid(noc.isNatureOfCollegeGrantAid());
-	        iiqa.setNatureOfCollegePrivate(noc.isNatureOfCollegePrivate());
+			iiqa.setNatureOfCollege(noc.getNatureOfCollege());
 	        PrepareIIQA saveNatureOfCollege = iiqaRepo.save(iiqa);
-	        return saveNatureOfCollege;
+	        if(saveNatureOfCollege != null) {
+		        return saveNatureOfCollege;
+	        }
+	        return null;
 	}
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public boolean saveDocumentOfNatureOfCollege(long prepareIIqaID, MultipartFile pdf) {
+
+		try {
+			PrepareIIQA iiqa = iiqaRepo.findById(prepareIIqaID).get();
+			if (iiqa != null) {
+				String fileName = fileService.uploadFile(pdf);
+				iiqa.setNatureOfCollegeDoc(fileName);
+				iiqaRepo.save(iiqa);
+				return true;
+			} else {
+				return false;
+			}
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
+	@Override
+	public boolean deleteDocumentOfNatureOfCollege(long prepareIIqaID) {
+		PrepareIIQA iiqa = iiqaRepo.findById(prepareIIqaID).get();;
+		if (iiqa != null) {
+			String docName = iiqa.getNatureOfCollegeDoc();
+			boolean success = fileService.deleteFileByName(docName);
+			if (success) {
+				iiqa.setNatureOfCollegeDoc("");
+				iiqaRepo.save(iiqa);
+				return true;
+			} else {
+				return false;
+			}
+
+		}
+		return false;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	@Override
@@ -763,7 +828,7 @@ public class PrepareIIQAServiceImpl implements PrepareIIQAService {
 	public boolean updateProgramCountOfCollege(Long prepareIIQA_ID, List<String> ProgramCount) {
 		PrepareIIQA iiqa = getPrepareIIQAById(prepareIIQA_ID);
 
-		if (iiqa != null || ProgramCount != null && ProgramCount.size() > 9) {
+		if (iiqa != null || ProgramCount != null && ProgramCount.size() > 10) {
 			iiqa.setProgram_Count_UG(ProgramCount.get(0));
 			iiqa.setProgram_Count_PG(ProgramCount.get(1));
 			iiqa.setProgram_Count_DM_Ayurveda_Vachaspathi(ProgramCount.get(2));
@@ -773,6 +838,8 @@ public class PrepareIIQAServiceImpl implements PrepareIIQAService {
 			iiqa.setProgram_Count_PG_Diploma(ProgramCount.get(6));
 			iiqa.setProgram_Count_Diploma(ProgramCount.get(7));
 			iiqa.setProgram_Count_Certificate_Awareness(ProgramCount.get(8));
+			iiqa.setMd(ProgramCount.get(9));
+			iiqa.setMs(ProgramCount.get(10));
 
 			iiqaRepo.save(iiqa);
 			return true;

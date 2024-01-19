@@ -22,14 +22,14 @@ public class OTPController {
 
 
 	@PostMapping("/send-otp")
-	public ResponseEntity<String> sendOtp(@RequestParam("email") String email) {
+	public ResponseEntity<String> sendOtp(@RequestParam("email") String email,String role) {
 	    String trimmedEmail = email.trim();
 
 	    if (trimmedEmail.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$")) {
 	        String otp = otpService.generateOtp();
 
 	        if (otp != null) {
-	            String success = otpService.sendOtpEmail(email, otp);
+	            String success = otpService.sendOtpEmail(email, otp,role);
 
 	            if ("true".equals(success)) {
 	                return ResponseEntity.ok("OTP sent successfully");
@@ -51,9 +51,10 @@ public class OTPController {
 	 @PostMapping("/verify-otp")
 	    public ResponseEntity<String> verifyOtp(
 	            @RequestParam("otp") String otp,
-	            @RequestParam("email") String email) {
+	            @RequestParam("email") String email,
+	            @RequestParam("role") String role) {
 
-	        boolean isVerified = otpService.otpVerification(otp, email);
+	        boolean isVerified = otpService.otpVerification(otp, email,role);
 
 	        if (isVerified) {
 	            return ResponseEntity.ok("OTP verification successful");
@@ -63,8 +64,8 @@ public class OTPController {
 	    }
 	 
 	 @GetMapping("/verify-email")
-	    public ResponseEntity<?> verifyEmail(@RequestParam("email") String email) {
-	        boolean isEmailVerified = otpService.emailVerification(email);
+	    public ResponseEntity<?> verifyEmail(@RequestParam("email") String email,@RequestParam("role") String role) {
+	        boolean isEmailVerified = otpService.emailVerification(email,role);
 
 	        if (isEmailVerified) {
 	            return ResponseEntity.ok("Varified Email Id");
@@ -74,14 +75,14 @@ public class OTPController {
 	    }
 	 
 	 @PostMapping("/repas")
-		public ResponseEntity<String> sendOtpForForgetPassword(@RequestParam("email") String email) {
+		public ResponseEntity<String> sendOtpForForgetPassword(@RequestParam("email") String email,@RequestParam("role") String role) {
 		    String trimmedEmail = email.trim();
 
 		    if (trimmedEmail.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$")) {
 		        String otp = otpService.generateOtp();
 
 		        if (otp != null) {
-		            String success = otpService.sendOtpForForgetPassword(email, otp);
+		            String success = otpService.sendOtpForForgetPassword(email, otp,role);
 
 		            if ("true".equals(success)) {
 		                return ResponseEntity.ok("OTP sent successfully");

@@ -16,7 +16,7 @@ public class ColumnFillService {
     private NewCollegeRegistrationRepo table1Repository;
 
     @Autowired
-    private AffiliatingUniversityRepo table2Repository;
+    private UniversityRecoginsedRepo table2Repository;
 
     @Autowired
     private CollegeProgramBySRARepo table3Repository;

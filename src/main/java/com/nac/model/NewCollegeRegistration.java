@@ -48,6 +48,8 @@ public class NewCollegeRegistration implements Serializable {
 	private String password;
 
 	private long prepareIIQA_id;
+	
+	private String role;
 
 	public long getPrepareIIQA_id() {
 		return prepareIIQA_id;
@@ -125,4 +127,13 @@ public class NewCollegeRegistration implements Serializable {
 		this.collegeMobileNo = collegeMobileNo;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	
 }

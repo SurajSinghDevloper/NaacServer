@@ -15,9 +15,9 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.DeleteObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.nac.model.IIQA.AffiliatingUniversity;
+import com.nac.model.IIQA.UniversityRecoginsed;
 import com.nac.model.IIQA.CollegeProgramBySRA;
-import com.nac.repository.AffiliatingUniversityRepo;
+import com.nac.repository.UniversityRecoginsedRepo;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,7 +33,7 @@ import javax.persistence.EntityManager;
 public class FileUpload {
 	
 	@Autowired
-	private AffiliatingUniversityRepo affiliRepo;
+	private UniversityRecoginsedRepo affiliRepo;
 	
 	@Autowired
 	EntityManager entityManager;
@@ -100,8 +100,8 @@ public class FileUpload {
 	    int attempts = 0;
 	    String documentName = "";
 	    while (attempts < maxAttempts) {
-	        AffiliatingUniversity univ = affiliRepo.getOne(AffiliatingUniversityId);
-	        documentName = univ.getDocumentName();
+	        UniversityRecoginsed univ = affiliRepo.getOne(AffiliatingUniversityId);
+	        documentName = univ.getCampusApprovalDoc();
 	        if (documentName != null && !documentName.isEmpty()) {
 	            return documentName; 
 	        }

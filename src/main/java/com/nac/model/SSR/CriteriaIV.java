@@ -15,62 +15,95 @@ public class CriteriaIV {
 	private long qifId;
 	
 //	4.1. Physical Facilities
-	private String facilities;
-	private String addInfo_doc;
-	private String addInfo_link;
-	private String infraExpenditurePercentage;
-	private String infraExpenditurePercenY1;
-	private String infraExpenditurePercenY2;
-	private String infraExpenditurePercenY3;
-	private String infraExpenditurePercenY4;
-	private String infraExpenditurePercenY5;
-	private String expYearlyY1;
-	private String expYearlyY2;
-	private String expYearlyY3;
-	private String expYearlyY4;
-	private String expYearlyY5;
-	private String institutionalDataTemplate_doc;
-	private String AudRep_incomExpendiState_doc;
-	private String supportDocLink;
+	private String facilities;//
+	
+	private String addInfo_doc;//
+	private String addInfo_link;//
+	
+	private String infraExpenditurePercentage;//
+	private String infraExpenditurePercenY1;//
+	private String infraExpenditurePercenY2;//
+	private String infraExpenditurePercenY3;//
+	private String infraExpenditurePercenY4;//
+	private String infraExpenditurePercenY5;//
+	
+	private String expYearlyY1;//
+	private String expYearlyY2;//
+	private String expYearlyY3;//
+	private String expYearlyY4;//
+	private String expYearlyY5;//
+	
+	private String institutionalDataTemplate_doc;//
+	private String AudRep_incomExpendiState_doc;//
+	private String supportDocLink;//
 	
 //	4.2. Library as a learning Resource
-	private String libraryILMS;
-	private String addInfo_doc2;
-	private String addInfo_link2;
+	private String libraryILMS;//
+	private String addInfo_doc2;//
+	//chnaged
+	private String relevantDOc;
+	private String addInfo_link2;//
+	private String eJnlExp_YY;
+	private String eJnlExp_YY1;
+	private String eJnlExp_YY2;
+	private String eJnlExp_YY3;
+	private String eJnlExp_YY4;
+	private String eJnlExp_YY5;
+	private String exp_excl_salary_y1;
+	private String exp_excl_salary_y2;
+	private String exp_excl_salary_y3;
+	private String exp_excl_salary_y4;
+	private String exp_excl_salary_y5;
+	private String addInfo_doc8;
+	private String addInfo_link8;
 	
 //	4.3. IT Infrastructure
 	private String itFaciUpdDatWiFiBandwidth;
 	private String addInfo_doc3;
 	private String addInfo_link3;
+	
 	private String totStudCompRatioAY;
 	private String numStudCompAY1;
 	private String numStudCompAY2;
 	private String numStudCompAY3;
 	private String numStudCompAY4;
 	private String numStudCompAY5;
+	
 	private String numStudentsByY1;
 	private String numStudentsByY2;
 	private String numStudentsByY3;
 	private String numStudentsByY4;
 	private String numStudentsByY5;
+	
 	private String StockRegistryExtractor_doc;
 	private String numCompPurchased_doc;
 	private String supportDocLink2;
 	
+	private String facilitForEcontent;
+	private String facilitForEcontentType;
+	private String  prescribedformatDoc;
+	private String relivantDocLink;
+	
 //	4.4. Maintenance of Campus Infrastructure
 	private String facilitiesExpenses;
+	
 	private String expFaciMaintenanceY1;
 	private String expFaciMaintenanceY2;
 	private String expFaciMaintenanceY3;
 	private String expFaciMaintenanceY4;
 	private String expFaciMaintenanceY5;
+	
 	private String expendiWithoutSalaryY1;
 	private String expendiWithoutSalaryY2;
 	private String expendiWithoutSalaryY3;
 	private String expendiWithoutSalaryY4;
 	private String expendiWithoutSalaryY5;
+	
 	private String addInfo_doc4;
 	private String addInfo_link4;
+	private String facilities_mgmt_sys;
+	private String addInfo_doc5;
+	private String addInfo_link5;
 	public long getCriteriaIV_Id() {
 		return CriteriaIV_Id;
 	}
@@ -209,11 +242,95 @@ public class CriteriaIV {
 	public void setAddInfo_doc2(String addInfo_doc2) {
 		this.addInfo_doc2 = addInfo_doc2;
 	}
+	public String getRelevantDOc() {
+		return relevantDOc;
+	}
+	public void setRelevantDOc(String relevantDOc) {
+		this.relevantDOc = relevantDOc;
+	}
 	public String getAddInfo_link2() {
 		return addInfo_link2;
 	}
 	public void setAddInfo_link2(String addInfo_link2) {
 		this.addInfo_link2 = addInfo_link2;
+	}
+	public String geteJnlExp_YY() {
+		return eJnlExp_YY;
+	}
+	public void seteJnlExp_YY(String eJnlExp_YY) {
+		this.eJnlExp_YY = eJnlExp_YY;
+	}
+	public String geteJnlExp_YY1() {
+		return eJnlExp_YY1;
+	}
+	public void seteJnlExp_YY1(String eJnlExp_YY1) {
+		this.eJnlExp_YY1 = eJnlExp_YY1;
+	}
+	public String geteJnlExp_YY2() {
+		return eJnlExp_YY2;
+	}
+	public void seteJnlExp_YY2(String eJnlExp_YY2) {
+		this.eJnlExp_YY2 = eJnlExp_YY2;
+	}
+	public String geteJnlExp_YY3() {
+		return eJnlExp_YY3;
+	}
+	public void seteJnlExp_YY3(String eJnlExp_YY3) {
+		this.eJnlExp_YY3 = eJnlExp_YY3;
+	}
+	public String geteJnlExp_YY4() {
+		return eJnlExp_YY4;
+	}
+	public void seteJnlExp_YY4(String eJnlExp_YY4) {
+		this.eJnlExp_YY4 = eJnlExp_YY4;
+	}
+	public String geteJnlExp_YY5() {
+		return eJnlExp_YY5;
+	}
+	public void seteJnlExp_YY5(String eJnlExp_YY5) {
+		this.eJnlExp_YY5 = eJnlExp_YY5;
+	}
+	public String getExp_excl_salary_y1() {
+		return exp_excl_salary_y1;
+	}
+	public void setExp_excl_salary_y1(String exp_excl_salary_y1) {
+		this.exp_excl_salary_y1 = exp_excl_salary_y1;
+	}
+	public String getExp_excl_salary_y2() {
+		return exp_excl_salary_y2;
+	}
+	public void setExp_excl_salary_y2(String exp_excl_salary_y2) {
+		this.exp_excl_salary_y2 = exp_excl_salary_y2;
+	}
+	public String getExp_excl_salary_y3() {
+		return exp_excl_salary_y3;
+	}
+	public void setExp_excl_salary_y3(String exp_excl_salary_y3) {
+		this.exp_excl_salary_y3 = exp_excl_salary_y3;
+	}
+	public String getExp_excl_salary_y4() {
+		return exp_excl_salary_y4;
+	}
+	public void setExp_excl_salary_y4(String exp_excl_salary_y4) {
+		this.exp_excl_salary_y4 = exp_excl_salary_y4;
+	}
+	public String getExp_excl_salary_y5() {
+		return exp_excl_salary_y5;
+	}
+	public void setExp_excl_salary_y5(String exp_excl_salary_y5) {
+		this.exp_excl_salary_y5 = exp_excl_salary_y5;
+	}
+	public String getAddInfo_doc8() {
+		return addInfo_doc8;
+	}
+	public void setAddInfo_doc8(String addInfo_doc8) {
+		this.addInfo_doc8 = addInfo_doc8;
+	}
+	public String getAddInfo_link8() {
+		return addInfo_link8;
+	}
+	public void setAddInfo_link8(String addInfo_link8) {
+		this.addInfo_link8 = addInfo_link8;
 	}
 	public String getItFaciUpdDatWiFiBandwidth() {
 		return itFaciUpdDatWiFiBandwidth;
@@ -317,6 +434,30 @@ public class CriteriaIV {
 	public void setSupportDocLink2(String supportDocLink2) {
 		this.supportDocLink2 = supportDocLink2;
 	}
+	public String getFacilitForEcontent() {
+		return facilitForEcontent;
+	}
+	public void setFacilitForEcontent(String facilitForEcontent) {
+		this.facilitForEcontent = facilitForEcontent;
+	}
+	public String getFacilitForEcontentType() {
+		return facilitForEcontentType;
+	}
+	public void setFacilitForEcontentType(String facilitForEcontentType) {
+		this.facilitForEcontentType = facilitForEcontentType;
+	}
+	public String getPrescribedformatDoc() {
+		return prescribedformatDoc;
+	}
+	public void setPrescribedformatDoc(String prescribedformatDoc) {
+		this.prescribedformatDoc = prescribedformatDoc;
+	}
+	public String getRelivantDocLink() {
+		return relivantDocLink;
+	}
+	public void setRelivantDocLink(String relivantDocLink) {
+		this.relivantDocLink = relivantDocLink;
+	}
 	public String getFacilitiesExpenses() {
 		return facilitiesExpenses;
 	}
@@ -395,6 +536,27 @@ public class CriteriaIV {
 	public void setAddInfo_link4(String addInfo_link4) {
 		this.addInfo_link4 = addInfo_link4;
 	}
+	public String getFacilities_mgmt_sys() {
+		return facilities_mgmt_sys;
+	}
+	public void setFacilities_mgmt_sys(String facilities_mgmt_sys) {
+		this.facilities_mgmt_sys = facilities_mgmt_sys;
+	}
+	public String getAddInfo_doc5() {
+		return addInfo_doc5;
+	}
+	public void setAddInfo_doc5(String addInfo_doc5) {
+		this.addInfo_doc5 = addInfo_doc5;
+	}
+	public String getAddInfo_link5() {
+		return addInfo_link5;
+	}
+	public void setAddInfo_link5(String addInfo_link5) {
+		this.addInfo_link5 = addInfo_link5;
+	}
+	
+	
+	
 	
 	
 }

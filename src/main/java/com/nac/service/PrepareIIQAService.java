@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.nac.model.IIQA.AffiliatingUniversity;
+import com.nac.model.IIQA.UniversityRecoginsed;
 import com.nac.model.IIQA.CollegeProgramBySRA;
 import com.nac.model.IIQA.DetailsOfStaffOfCollege;
 import com.nac.model.IIQA.DetailsOfStudentOfCollege;
@@ -24,17 +24,17 @@ public interface PrepareIIQAService {
 	
 	public List<Map.Entry<String, List<Object>>> combineResults(long prepareIIQA_ID);
 
-	public void affiliating_University(AffiliatingUniversity affUniv, long piiqa);
+	public void recognised_University(UniversityRecoginsed affUniv);
 	
-	public boolean deleteAffiliatingUniversity(Long id);
+	public boolean deleteRecognisedUniv(Long id);
 	
-	public boolean affiliating_Univ_Document(MultipartFile pdf, Long id);
+	public boolean recognised_Univ_Document(MultipartFile pdf, Long id);
 	
-	public boolean deleteAffiliating_Univ_Document(Long AffiliatingUniversityId);
+	public boolean deleteRecog_Univ_Document(Long AffiliatingUniversityId);
 	
 	public boolean delete_affiliating_University(long affiliatingUniversityId);
 
-	public List<AffiliatingUniversity> getAllAffiliatingUniversityByPrepareIIQAID(long prepareIIQA_ID);
+	public List<UniversityRecoginsed> getAllRecogUnivByPrepareIIQAID(long prepareIIQA_ID);
 	
 	public SraList saveSra(SraList sra);
 	
@@ -77,6 +77,10 @@ public interface PrepareIIQAService {
 	public PrepareIIQA getPrepareIIQAById(Long prepareIIQA_ID);
 	
 	public PrepareIIQA  updateNaturesOfCollege(long prepareIIqaID, PrepareIIQA natureOfCollege);
+	
+	public boolean deleteDocumentOfNatureOfCollege(long prepareIIqaID);
+	
+	public boolean saveDocumentOfNatureOfCollege(long prepareIIqaID, MultipartFile pdf);
 
 	public boolean updateDateOfRecognitionByUGCAndDocument(Long prepareIIQA_ID, String date, MultipartFile pdf);
 

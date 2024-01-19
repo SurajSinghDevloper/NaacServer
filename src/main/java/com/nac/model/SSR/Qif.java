@@ -12,329 +12,606 @@ public class Qif {
 	private long qifID;
 	private long ssrID;
 	private long collegeID;
-	private String effectiveCurriculumPlanning_CA;
-    private String template_CA;
-    private String documents_CA;
-    private String link_CA;
-//    Academic Flexibility KI
-    private String numCertCourseComplLast5Y_AF;
-    private String CertCourseCompY1_AF;
-    private String CertCourseCompY2_AF;
-    private String CertCourseCompY3_AF;
-    private String CertCourseCompY4_AF;
-    private String CertCourseCompY5_AF;
-    private String institutionalDataFormatDocs_AF;
-    private String programBrochureDoc_AF;
-    private String studentAttendanceList_AF;
-    private String courseCompletionEvidenceDoc_AF;
-    private String supportingLinks_AF;
-    private String enrollNComplCoursPercentLast5Y_AF;
-    private String enrollCompPercentY1_AF;
-    private String enrollCompPercentY2_AF;
-    private String enrollCompPercentY3_AF;
-    private String enrollCompPercentY4_AF;
-    private String enrollCompPercentY5_AF;
-    private String institutionalDataFormatDoc_AF;
-    private String supportingDoc_AF;
-//    Curriculum Enrichment KI
-    private String integratesCrosscuttingIssues_CE;
-    private String supportingDoc_CE;
-    private String numStudUndertakingProj_CE;
-    private String stdUndertakingProjY1_CE;
-    private String stdUndertakingProjY2_CE;
-    private String stdUndertakingProjY3_CE;
-    private String stdUndertakingProjY4_CE;
-    private String stdUndertakingProjY5_CE;
-    private String institutionalDataFormatDoc_CE;
-    private String additionalInfoLink;
-	private String supportingDocs_CE;
-//    Feedback System KI
-	private String feedbackProcesses;
-    private String instiDataFormatDoc_FS;
-    private String feedbackFormsFromStakeholdersDoc_FS;
-    private String feedbackAnalysisReprtSubmDoc_FS;
-    private String feedbackActionReportDoc_FS;
-    private String feedbackWebsiteLink_FS;
+	private String relevantDevNeedsPOsCOs;
+	private String uploadAdditionalInfoDoc;
+	private String additionalInfoLink;
+	private String skillDevInstitProgram;
+	private String uploadAdditionalInfoDoc2;
+	private String additionalInfoLink2;
+	private String newCoursesPercentage;
+	private String numNewCoursesY1;
+	private String numNewCoursesY2;
+	private String numNewCoursesY3;
+	private String numNewCoursesY4;
+	private String numNewCoursesY5;
+	private String uniqueCourseCountY1;
+	private String uniqueCourseCountY2;
+	private String uniqueCourseCountY3;
+	private String uniqueCourseCountY4;
+	private String uniqueCourseCountY5;
+	private String instDataFormatDoc;
+	private String instWebDisclosureDoc;
+	private String bosMeetingMinutesDoc;
+	private String academicCouncilEndorDoc;
+	private String linkForAnyReleventDoc;
+	private String curriculumIntegration;
+	private String additionalInfoDoc;
+	private String linkForAdditionalInfo;
+	// bacha hua hai
+	private String numCertCoursesCompleted;
+	private String numCertCoursesCompletedY1;
+	private String numCertCoursesCompletedY2;
+	private String numCertCoursesCompletedY3;
+	private String numCertCoursesCompletedY4;
+	private String numCertCoursesCompletedY5;
+	private String institutionalWebsiteInfoDoc;
+	private String programBrochureNoticeDoc;
+	private String studentsAttendanceListDOC;
+	private String courseCompletionEvidenceDOC;
+	private String institutionalDataFormatDOC;
+	private String supportingDocumentLink;
+
+	private String projInternPercent;
+	private String totProgWithFieldProjY1;
+	private String totProgWithFieldProjY2;
+	private String totProgWithFieldProjY3;
+	private String totProgWithFieldProjY4;
+	private String totProgWithFieldProjY5;
+
+	private String totalUniqueProgramsY1;
+	private String totalUniqueProgramsY2;
+	private String totalUniqueProgramsY3;
+	private String totalUniqueProgramsY4;
+	private String totalUniqueProgramsY5;
+	private String institutionalDataFormatDoc2;
+	private String progContWithBOSProjDoc;
+	private String InternCompleLetterDoc;
+	private String EvaluatedProjReportDoc;
+	private String relevantDocLink;
+	// 1.4. Feedback System
+	private String feedbackForCurriculum;
+	private String feedbackAnalysisActionComm;
+	private String institutionalDataFormatDoc3;
+	private String feedFormDiffStakeHoldersDoc;
+	private String feedbackAnalysisReportDoc;
+	private String actionTakenReportDoc;
+	private String linkOfInstitutionWebsite;
+	private String linkForRelevant;
 	private String completed;
 	private String verified;
-    
-//    getter and setter
-    
+
+	// getter and setter
+
 	public long getQifID() {
 		return qifID;
 	}
+
 	public void setQifID(long qifID) {
 		this.qifID = qifID;
 	}
+
 	public long getSsrID() {
 		return ssrID;
 	}
+
 	public void setSsrID(long ssrID) {
 		this.ssrID = ssrID;
 	}
+
 	public long getCollegeID() {
 		return collegeID;
 	}
+
 	public void setCollegeID(long collegeID) {
 		this.collegeID = collegeID;
 	}
-	public String getEffectiveCurriculumPlanning_CA() {
-		return effectiveCurriculumPlanning_CA;
-	}
-	public void setEffectiveCurriculumPlanning_CA(String effectiveCurriculumPlanning_CA) {
-		this.effectiveCurriculumPlanning_CA = effectiveCurriculumPlanning_CA;
-	}
-	public String getTemplate_CA() {
-		return template_CA;
-	}
-	public void setTemplate_CA(String template_CA) {
-		this.template_CA = template_CA;
-	}
-	public String getDocuments_CA() {
-		return documents_CA;
-	}
-	public void setDocuments_CA(String documents_CA) {
-		this.documents_CA = documents_CA;
-	}
-	public String getLink_CA() {
-		return link_CA;
-	}
-	public void setLink_CA(String link_CA) {
-		this.link_CA = link_CA;
-	}
-	public String getNumCertCourseComplLast5Y_AF() {
-		return numCertCourseComplLast5Y_AF;
-	}
-	public void setNumCertCourseComplLast5Y_AF(String numCertCourseComplLast5Y_AF) {
-		this.numCertCourseComplLast5Y_AF = numCertCourseComplLast5Y_AF;
-	}
-	public String getCertCourseCompY1_AF() {
-		return CertCourseCompY1_AF;
-	}
-	public void setCertCourseCompY1_AF(String certCourseCompY1_AF) {
-		CertCourseCompY1_AF = certCourseCompY1_AF;
-	}
-	public String getCertCourseCompY2_AF() {
-		return CertCourseCompY2_AF;
-	}
-	public void setCertCourseCompY2_AF(String certCourseCompY2_AF) {
-		CertCourseCompY2_AF = certCourseCompY2_AF;
-	}
-	public String getCertCourseCompY3_AF() {
-		return CertCourseCompY3_AF;
-	}
-	public void setCertCourseCompY3_AF(String certCourseCompY3_AF) {
-		CertCourseCompY3_AF = certCourseCompY3_AF;
-	}
-	public String getCertCourseCompY4_AF() {
-		return CertCourseCompY4_AF;
-	}
-	public void setCertCourseCompY4_AF(String certCourseCompY4_AF) {
-		CertCourseCompY4_AF = certCourseCompY4_AF;
-	}
-	public String getCertCourseCompY5_AF() {
-		return CertCourseCompY5_AF;
-	}
-	public void setCertCourseCompY5_AF(String certCourseCompY5_AF) {
-		CertCourseCompY5_AF = certCourseCompY5_AF;
-	}
-	public String getInstitutionalDataFormatDocs_AF() {
-		return institutionalDataFormatDocs_AF;
-	}
-	public void setInstitutionalDataFormatDocs_AF(String institutionalDataFormatDocs_AF) {
-		this.institutionalDataFormatDocs_AF = institutionalDataFormatDocs_AF;
-	}
-	public String getProgramBrochureDoc_AF() {
-		return programBrochureDoc_AF;
-	}
-	public void setProgramBrochureDoc_AF(String programBrochureDoc_AF) {
-		this.programBrochureDoc_AF = programBrochureDoc_AF;
-	}
-	public String getStudentAttendanceList_AF() {
-		return studentAttendanceList_AF;
-	}
-	public void setStudentAttendanceList_AF(String studentAttendanceList_AF) {
-		this.studentAttendanceList_AF = studentAttendanceList_AF;
-	}
-	public String getCourseCompletionEvidenceDoc_AF() {
-		return courseCompletionEvidenceDoc_AF;
-	}
-	public void setCourseCompletionEvidenceDoc_AF(String courseCompletionEvidenceDoc_AF) {
-		this.courseCompletionEvidenceDoc_AF = courseCompletionEvidenceDoc_AF;
-	}
-	public String getSupportingLinks_AF() {
-		return supportingLinks_AF;
-	}
-	public void setSupportingLinks_AF(String supportingLinks_AF) {
-		this.supportingLinks_AF = supportingLinks_AF;
-	}
-	public String getEnrollNComplCoursPercentLast5Y_AF() {
-		return enrollNComplCoursPercentLast5Y_AF;
-	}
-	public void setEnrollNComplCoursPercentLast5Y_AF(String enrollNComplCoursPercentLast5Y_AF) {
-		this.enrollNComplCoursPercentLast5Y_AF = enrollNComplCoursPercentLast5Y_AF;
-	}
-	public String getEnrollCompPercentY1_AF() {
-		return enrollCompPercentY1_AF;
-	}
-	public void setEnrollCompPercentY1_AF(String enrollCompPercentY1_AF) {
-		this.enrollCompPercentY1_AF = enrollCompPercentY1_AF;
-	}
-	public String getEnrollCompPercentY2_AF() {
-		return enrollCompPercentY2_AF;
-	}
-	public void setEnrollCompPercentY2_AF(String enrollCompPercentY2_AF) {
-		this.enrollCompPercentY2_AF = enrollCompPercentY2_AF;
-	}
-	public String getEnrollCompPercentY3_AF() {
-		return enrollCompPercentY3_AF;
-	}
-	public void setEnrollCompPercentY3_AF(String enrollCompPercentY3_AF) {
-		this.enrollCompPercentY3_AF = enrollCompPercentY3_AF;
-	}
-	public String getEnrollCompPercentY4_AF() {
-		return enrollCompPercentY4_AF;
-	}
-	public void setEnrollCompPercentY4_AF(String enrollCompPercentY4_AF) {
-		this.enrollCompPercentY4_AF = enrollCompPercentY4_AF;
-	}
-	public String getEnrollCompPercentY5_AF() {
-		return enrollCompPercentY5_AF;
-	}
-	public void setEnrollCompPercentY5_AF(String enrollCompPercentY5_AF) {
-		this.enrollCompPercentY5_AF = enrollCompPercentY5_AF;
-	}
-	public String getInstitutionalDataFormatDoc_AF() {
-		return institutionalDataFormatDoc_AF;
-	}
-	public void setInstitutionalDataFormatDoc_AF(String institutionalDataFormatDoc_AF) {
-		this.institutionalDataFormatDoc_AF = institutionalDataFormatDoc_AF;
-	}
-	public String getSupportingDoc_AF() {
-		return supportingDoc_AF;
-	}
-	public void setSupportingDoc_AF(String supportingDoc_AF) {
-		this.supportingDoc_AF = supportingDoc_AF;
-	}
-	public String getIntegratesCrosscuttingIssues_CE() {
-		return integratesCrosscuttingIssues_CE;
-	}
-	public void setIntegratesCrosscuttingIssues_CE(String integratesCrosscuttingIssues_CE) {
-		this.integratesCrosscuttingIssues_CE = integratesCrosscuttingIssues_CE;
-	}
-	public String getSupportingDoc_CE() {
-		return supportingDoc_CE;
-	}
-	public void setSupportingDoc_CE(String supportingDoc_CE) {
-		this.supportingDoc_CE = supportingDoc_CE;
-	}
-	public String getNumStudUndertakingProj_CE() {
-		return numStudUndertakingProj_CE;
-	}
-	public void setNumStudUndertakingProj_CE(String numStudUndertakingProj_CE) {
-		this.numStudUndertakingProj_CE = numStudUndertakingProj_CE;
-	}
-	public String getStdUndertakingProjY1_CE() {
-		return stdUndertakingProjY1_CE;
-	}
-	public void setStdUndertakingProjY1_CE(String stdUndertakingProjY1_CE) {
-		this.stdUndertakingProjY1_CE = stdUndertakingProjY1_CE;
-	}
-	public String getStdUndertakingProjY2_CE() {
-		return stdUndertakingProjY2_CE;
-	}
-	public void setStdUndertakingProjY2_CE(String stdUndertakingProjY2_CE) {
-		this.stdUndertakingProjY2_CE = stdUndertakingProjY2_CE;
-	}
-	public String getStdUndertakingProjY3_CE() {
-		return stdUndertakingProjY3_CE;
-	}
-	public void setStdUndertakingProjY3_CE(String stdUndertakingProjY3_CE) {
-		this.stdUndertakingProjY3_CE = stdUndertakingProjY3_CE;
-	}
-	public String getStdUndertakingProjY4_CE() {
-		return stdUndertakingProjY4_CE;
-	}
-	public void setStdUndertakingProjY4_CE(String stdUndertakingProjY4_CE) {
-		this.stdUndertakingProjY4_CE = stdUndertakingProjY4_CE;
-	}
-	public String getStdUndertakingProjY5_CE() {
-		return stdUndertakingProjY5_CE;
-	}
-	public void setStdUndertakingProjY5_CE(String stdUndertakingProjY5_CE) {
-		this.stdUndertakingProjY5_CE = stdUndertakingProjY5_CE;
-	}
-	public String getInstitutionalDataFormatDoc_CE() {
-		return institutionalDataFormatDoc_CE;
-	}
-	public void setInstitutionalDataFormatDoc_CE(String institutionalDataFormatDoc_CE) {
-		this.institutionalDataFormatDoc_CE = institutionalDataFormatDoc_CE;
-	}
-    public String getAdditionalInfoLink() {
+
+	public String getRelevantDevNeedsPOsCOs() {
+		return relevantDevNeedsPOsCOs;
+	}
+
+	public void setRelevantDevNeedsPOsCOs(String relevantDevNeedsPOsCOs) {
+		this.relevantDevNeedsPOsCOs = relevantDevNeedsPOsCOs;
+	}
+
+	public String getUploadAdditionalInfoDoc() {
+		return uploadAdditionalInfoDoc;
+	}
+
+	public void setUploadAdditionalInfoDoc(String uploadAdditionalInfoDoc) {
+		this.uploadAdditionalInfoDoc = uploadAdditionalInfoDoc;
+	}
+
+	public String getAdditionalInfoLink() {
 		return additionalInfoLink;
 	}
+
 	public void setAdditionalInfoLink(String additionalInfoLink) {
 		this.additionalInfoLink = additionalInfoLink;
 	}
-	public String getSupportingDocs_CE() {
-		return supportingDocs_CE;
+
+	public String getSkillDevInstitProgram() {
+		return skillDevInstitProgram;
 	}
-	public void setSupportingDocs_CE(String supportingDocs_CE) {
-		this.supportingDocs_CE = supportingDocs_CE;
+
+	public void setSkillDevInstitProgram(String skillDevInstitProgram) {
+		this.skillDevInstitProgram = skillDevInstitProgram;
 	}
+
+	public String getUploadAdditionalInfoDoc2() {
+		return uploadAdditionalInfoDoc2;
+	}
+
+	public void setUploadAdditionalInfoDoc2(String uploadAdditionalInfoDoc2) {
+		this.uploadAdditionalInfoDoc2 = uploadAdditionalInfoDoc2;
+	}
+
+	public String getAdditionalInfoLink2() {
+		return additionalInfoLink2;
+	}
+
+	public void setAdditionalInfoLink2(String additionalInfoLink2) {
+		this.additionalInfoLink2 = additionalInfoLink2;
+	}
+
+	public String getNewCoursesPercentage() {
+		return newCoursesPercentage;
+	}
+
+	public void setNewCoursesPercentage(String newCoursesPercentage) {
+		this.newCoursesPercentage = newCoursesPercentage;
+	}
+
+	public String getNumNewCoursesY1() {
+		return numNewCoursesY1;
+	}
+
+	public void setNumNewCoursesY1(String numNewCoursesY1) {
+		this.numNewCoursesY1 = numNewCoursesY1;
+	}
+
+	public String getNumNewCoursesY2() {
+		return numNewCoursesY2;
+	}
+
+	public void setNumNewCoursesY2(String numNewCoursesY2) {
+		this.numNewCoursesY2 = numNewCoursesY2;
+	}
+
+	public String getNumNewCoursesY3() {
+		return numNewCoursesY3;
+	}
+
+	public void setNumNewCoursesY3(String numNewCoursesY3) {
+		this.numNewCoursesY3 = numNewCoursesY3;
+	}
+
+	public String getNumNewCoursesY4() {
+		return numNewCoursesY4;
+	}
+
+	public void setNumNewCoursesY4(String numNewCoursesY4) {
+		this.numNewCoursesY4 = numNewCoursesY4;
+	}
+
+	public String getNumNewCoursesY5() {
+		return numNewCoursesY5;
+	}
+
+	public void setNumNewCoursesY5(String numNewCoursesY5) {
+		this.numNewCoursesY5 = numNewCoursesY5;
+	}
+
+	public String getUniqueCourseCountY1() {
+		return uniqueCourseCountY1;
+	}
+
+	public void setUniqueCourseCountY1(String uniqueCourseCountY1) {
+		this.uniqueCourseCountY1 = uniqueCourseCountY1;
+	}
+
+	public String getUniqueCourseCountY2() {
+		return uniqueCourseCountY2;
+	}
+
+	public void setUniqueCourseCountY2(String uniqueCourseCountY2) {
+		this.uniqueCourseCountY2 = uniqueCourseCountY2;
+	}
+
+	public String getUniqueCourseCountY3() {
+		return uniqueCourseCountY3;
+	}
+
+	public void setUniqueCourseCountY3(String uniqueCourseCountY3) {
+		this.uniqueCourseCountY3 = uniqueCourseCountY3;
+	}
+
+	public String getUniqueCourseCountY4() {
+		return uniqueCourseCountY4;
+	}
+
+	public void setUniqueCourseCountY4(String uniqueCourseCountY4) {
+		this.uniqueCourseCountY4 = uniqueCourseCountY4;
+	}
+
+	public String getUniqueCourseCountY5() {
+		return uniqueCourseCountY5;
+	}
+
+	public void setUniqueCourseCountY5(String uniqueCourseCountY5) {
+		this.uniqueCourseCountY5 = uniqueCourseCountY5;
+	}
+
 	
-	public String getFeedbackProcesses() {
-		return feedbackProcesses;
+
+	public String getInstDataFormatDoc() {
+		return instDataFormatDoc;
 	}
-	public void setFeedbackProcesses(String feedbackProcesses) {
-		this.feedbackProcesses = feedbackProcesses;
+
+	public void setInstDataFormatDoc(String instDataFormatDoc) {
+		this.instDataFormatDoc = instDataFormatDoc;
 	}
-	public String getInstiDataFormatDoc_FS() {
-		return instiDataFormatDoc_FS;
+
+	public String getInstWebDisclosureDoc() {
+		return instWebDisclosureDoc;
 	}
-	public void setInstiDataFormatDoc_FS(String instiDataFormatDoc_FS) {
-		this.instiDataFormatDoc_FS = instiDataFormatDoc_FS;
+
+	public void setInstWebDisclosureDoc(String instWebDisclosureDoc) {
+		this.instWebDisclosureDoc = instWebDisclosureDoc;
 	}
-	public String getFeedbackFormsFromStakeholdersDoc_FS() {
-		return feedbackFormsFromStakeholdersDoc_FS;
+
+	public String getBosMeetingMinutesDoc() {
+		return bosMeetingMinutesDoc;
 	}
-	public void setFeedbackFormsFromStakeholdersDoc_FS(String feedbackFormsFromStakeholdersDoc_FS) {
-		this.feedbackFormsFromStakeholdersDoc_FS = feedbackFormsFromStakeholdersDoc_FS;
+
+	public void setBosMeetingMinutesDoc(String bosMeetingMinutesDoc) {
+		this.bosMeetingMinutesDoc = bosMeetingMinutesDoc;
 	}
-	public String getFeedbackAnalysisReprtSubmDoc_FS() {
-		return feedbackAnalysisReprtSubmDoc_FS;
+
+	public String getAcademicCouncilEndorDoc() {
+		return academicCouncilEndorDoc;
 	}
-	public void setFeedbackAnalysisReprtSubmDoc_FS(String feedbackAnalysisReprtSubmDoc_FS) {
-		this.feedbackAnalysisReprtSubmDoc_FS = feedbackAnalysisReprtSubmDoc_FS;
+
+	public void setAcademicCouncilEndorDoc(String academicCouncilEndorDoc) {
+		this.academicCouncilEndorDoc = academicCouncilEndorDoc;
 	}
-	public String getFeedbackActionReportDoc_FS() {
-		return feedbackActionReportDoc_FS;
+
+	public String getLinkForAnyReleventDoc() {
+		return linkForAnyReleventDoc;
 	}
-	public void setFeedbackActionReportDoc_FS(String feedbackActionReportDoc_FS) {
-		this.feedbackActionReportDoc_FS = feedbackActionReportDoc_FS;
+
+	public void setLinkForAnyReleventDoc(String linkForAnyReleventDoc) {
+		this.linkForAnyReleventDoc = linkForAnyReleventDoc;
 	}
-	public String getFeedbackWebsiteLink_FS() {
-		return feedbackWebsiteLink_FS;
+
+	public String getCurriculumIntegration() {
+		return curriculumIntegration;
 	}
-	public void setFeedbackWebsiteLink_FS(String feedbackWebsiteLink_FS) {
-		this.feedbackWebsiteLink_FS = feedbackWebsiteLink_FS;
+
+	public void setCurriculumIntegration(String curriculumIntegration) {
+		this.curriculumIntegration = curriculumIntegration;
 	}
+
+	public String getAdditionalInfoDoc() {
+		return additionalInfoDoc;
+	}
+
+	public void setAdditionalInfoDoc(String additionalInfoDoc) {
+		this.additionalInfoDoc = additionalInfoDoc;
+	}
+
+	public String getLinkForAdditionalInfo() {
+		return linkForAdditionalInfo;
+	}
+
+	public void setLinkForAdditionalInfo(String linkForAdditionalInfo) {
+		this.linkForAdditionalInfo = linkForAdditionalInfo;
+	}
+
+	public String getNumCertCoursesCompleted() {
+		return numCertCoursesCompleted;
+	}
+
+	public void setNumCertCoursesCompleted(String numCertCoursesCompleted) {
+		this.numCertCoursesCompleted = numCertCoursesCompleted;
+	}
+
+	public String getNumCertCoursesCompletedY1() {
+		return numCertCoursesCompletedY1;
+	}
+
+	public void setNumCertCoursesCompletedY1(String numCertCoursesCompletedY1) {
+		this.numCertCoursesCompletedY1 = numCertCoursesCompletedY1;
+	}
+
+	public String getNumCertCoursesCompletedY2() {
+		return numCertCoursesCompletedY2;
+	}
+
+	public void setNumCertCoursesCompletedY2(String numCertCoursesCompletedY2) {
+		this.numCertCoursesCompletedY2 = numCertCoursesCompletedY2;
+	}
+
+	public String getNumCertCoursesCompletedY3() {
+		return numCertCoursesCompletedY3;
+	}
+
+	public void setNumCertCoursesCompletedY3(String numCertCoursesCompletedY3) {
+		this.numCertCoursesCompletedY3 = numCertCoursesCompletedY3;
+	}
+
+	public String getNumCertCoursesCompletedY4() {
+		return numCertCoursesCompletedY4;
+	}
+
+	public void setNumCertCoursesCompletedY4(String numCertCoursesCompletedY4) {
+		this.numCertCoursesCompletedY4 = numCertCoursesCompletedY4;
+	}
+
+	public String getNumCertCoursesCompletedY5() {
+		return numCertCoursesCompletedY5;
+	}
+
+	public void setNumCertCoursesCompletedY5(String numCertCoursesCompletedY5) {
+		this.numCertCoursesCompletedY5 = numCertCoursesCompletedY5;
+	}
+
+	public String getInstitutionalWebsiteInfoDoc() {
+		return institutionalWebsiteInfoDoc;
+	}
+
+	public void setInstitutionalWebsiteInfoDoc(String institutionalWebsiteInfoDoc) {
+		this.institutionalWebsiteInfoDoc = institutionalWebsiteInfoDoc;
+	}
+
+	public String getProgramBrochureNoticeDoc() {
+		return programBrochureNoticeDoc;
+	}
+
+	public void setProgramBrochureNoticeDoc(String programBrochureNoticeDoc) {
+		this.programBrochureNoticeDoc = programBrochureNoticeDoc;
+	}
+
+	public String getStudentsAttendanceListDOC() {
+		return studentsAttendanceListDOC;
+	}
+
+	public void setStudentsAttendanceListDOC(String studentsAttendanceListDOC) {
+		this.studentsAttendanceListDOC = studentsAttendanceListDOC;
+	}
+
+	public String getCourseCompletionEvidenceDOC() {
+		return courseCompletionEvidenceDOC;
+	}
+
+	public void setCourseCompletionEvidenceDOC(String courseCompletionEvidenceDOC) {
+		this.courseCompletionEvidenceDOC = courseCompletionEvidenceDOC;
+	}
+
+	public String getInstitutionalDataFormatDOC() {
+		return institutionalDataFormatDOC;
+	}
+
+	public void setInstitutionalDataFormatDOC(String institutionalDataFormatDOC) {
+		this.institutionalDataFormatDOC = institutionalDataFormatDOC;
+	}
+
+	public String getSupportingDocumentLink() {
+		return supportingDocumentLink;
+	}
+
+	public void setSupportingDocumentLink(String supportingDocumentLink) {
+		this.supportingDocumentLink = supportingDocumentLink;
+	}
+
+	public String getProjInternPercent() {
+		return projInternPercent;
+	}
+
+	public void setProjInternPercent(String projInternPercent) {
+		this.projInternPercent = projInternPercent;
+	}
+
+	public String getTotProgWithFieldProjY1() {
+		return totProgWithFieldProjY1;
+	}
+
+	public void setTotProgWithFieldProjY1(String totProgWithFieldProjY1) {
+		this.totProgWithFieldProjY1 = totProgWithFieldProjY1;
+	}
+
+	public String getTotProgWithFieldProjY2() {
+		return totProgWithFieldProjY2;
+	}
+
+	public void setTotProgWithFieldProjY2(String totProgWithFieldProjY2) {
+		this.totProgWithFieldProjY2 = totProgWithFieldProjY2;
+	}
+
+	public String getTotProgWithFieldProjY3() {
+		return totProgWithFieldProjY3;
+	}
+
+	public void setTotProgWithFieldProjY3(String totProgWithFieldProjY3) {
+		this.totProgWithFieldProjY3 = totProgWithFieldProjY3;
+	}
+
+	public String getTotProgWithFieldProjY4() {
+		return totProgWithFieldProjY4;
+	}
+
+	public void setTotProgWithFieldProjY4(String totProgWithFieldProjY4) {
+		this.totProgWithFieldProjY4 = totProgWithFieldProjY4;
+	}
+
+	public String getTotProgWithFieldProjY5() {
+		return totProgWithFieldProjY5;
+	}
+
+	public void setTotProgWithFieldProjY5(String totProgWithFieldProjY5) {
+		this.totProgWithFieldProjY5 = totProgWithFieldProjY5;
+	}
+
+	public String getTotalUniqueProgramsY1() {
+		return totalUniqueProgramsY1;
+	}
+
+	public void setTotalUniqueProgramsY1(String totalUniqueProgramsY1) {
+		this.totalUniqueProgramsY1 = totalUniqueProgramsY1;
+	}
+
+	public String getTotalUniqueProgramsY2() {
+		return totalUniqueProgramsY2;
+	}
+
+	public void setTotalUniqueProgramsY2(String totalUniqueProgramsY2) {
+		this.totalUniqueProgramsY2 = totalUniqueProgramsY2;
+	}
+
+	public String getTotalUniqueProgramsY3() {
+		return totalUniqueProgramsY3;
+	}
+
+	public void setTotalUniqueProgramsY3(String totalUniqueProgramsY3) {
+		this.totalUniqueProgramsY3 = totalUniqueProgramsY3;
+	}
+
+	public String getTotalUniqueProgramsY4() {
+		return totalUniqueProgramsY4;
+	}
+
+	public void setTotalUniqueProgramsY4(String totalUniqueProgramsY4) {
+		this.totalUniqueProgramsY4 = totalUniqueProgramsY4;
+	}
+
+	public String getTotalUniqueProgramsY5() {
+		return totalUniqueProgramsY5;
+	}
+
+	public void setTotalUniqueProgramsY5(String totalUniqueProgramsY5) {
+		this.totalUniqueProgramsY5 = totalUniqueProgramsY5;
+	}
+
+	public String getInstitutionalDataFormatDoc2() {
+		return institutionalDataFormatDoc2;
+	}
+
+	public void setInstitutionalDataFormatDoc2(String institutionalDataFormatDoc2) {
+		this.institutionalDataFormatDoc2 = institutionalDataFormatDoc2;
+	}
+
+	public String getProgContWithBOSProjDoc() {
+		return progContWithBOSProjDoc;
+	}
+
+	public void setProgContWithBOSProjDoc(String progContWithBOSProjDoc) {
+		this.progContWithBOSProjDoc = progContWithBOSProjDoc;
+	}
+
+	public String getInternCompleLetterDoc() {
+		return InternCompleLetterDoc;
+	}
+
+	public void setInternCompleLetterDoc(String internCompleLetterDoc) {
+		InternCompleLetterDoc = internCompleLetterDoc;
+	}
+
+	public String getEvaluatedProjReportDoc() {
+		return EvaluatedProjReportDoc;
+	}
+
+	public void setEvaluatedProjReportDoc(String evaluatedProjReportDoc) {
+		EvaluatedProjReportDoc = evaluatedProjReportDoc;
+	}
+
+	
+
+	public String getFeedbackForCurriculum() {
+		return feedbackForCurriculum;
+	}
+
+	public void setFeedbackForCurriculum(String feedbackForCurriculum) {
+		this.feedbackForCurriculum = feedbackForCurriculum;
+	}
+
+	public String getFeedbackAnalysisActionComm() {
+		return feedbackAnalysisActionComm;
+	}
+
+	public void setFeedbackAnalysisActionComm(String feedbackAnalysisActionComm) {
+		this.feedbackAnalysisActionComm = feedbackAnalysisActionComm;
+	}
+
+	public String getInstitutionalDataFormatDoc3() {
+		return institutionalDataFormatDoc3;
+	}
+
+	public void setInstitutionalDataFormatDoc3(String institutionalDataFormatDoc3) {
+		this.institutionalDataFormatDoc3 = institutionalDataFormatDoc3;
+	}
+
+	public String getFeedFormDiffStakeHoldersDoc() {
+		return feedFormDiffStakeHoldersDoc;
+	}
+
+	public void setFeedFormDiffStakeHoldersDoc(String feedFormDiffStakeHoldersDoc) {
+		this.feedFormDiffStakeHoldersDoc = feedFormDiffStakeHoldersDoc;
+	}
+
+	public String getFeedbackAnalysisReportDoc() {
+		return feedbackAnalysisReportDoc;
+	}
+
+	public void setFeedbackAnalysisReportDoc(String feedbackAnalysisReportDoc) {
+		this.feedbackAnalysisReportDoc = feedbackAnalysisReportDoc;
+	}
+
+	public String getActionTakenReportDoc() {
+		return actionTakenReportDoc;
+	}
+
+	public void setActionTakenReportDoc(String actionTakenReportDoc) {
+		this.actionTakenReportDoc = actionTakenReportDoc;
+	}
+
+	public String getLinkOfInstitutionWebsite() {
+		return linkOfInstitutionWebsite;
+	}
+
+	public void setLinkOfInstitutionWebsite(String linkOfInstitutionWebsite) {
+		this.linkOfInstitutionWebsite = linkOfInstitutionWebsite;
+	}
+
+	public String getLinkForRelevant() {
+		return linkForRelevant;
+	}
+
+	public void setLinkForRelevant(String linkForRelevant) {
+		this.linkForRelevant = linkForRelevant;
+	}
+
 	public String getCompleted() {
 		return completed;
 	}
+
 	public void setCompleted(String completed) {
 		this.completed = completed;
 	}
+
 	public String getVerified() {
 		return verified;
 	}
+
 	public void setVerified(String verified) {
 		this.verified = verified;
 	}
 
-    
-    
-    
+	public String getRelevantDocLink() {
+		return relevantDocLink;
+	}
+
+	public void setRelevantDocLink(String relevantDocLink) {
+		this.relevantDocLink = relevantDocLink;
+	}
+
 }
-
-

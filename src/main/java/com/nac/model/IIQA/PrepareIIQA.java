@@ -33,7 +33,7 @@ public class PrepareIIQA implements Serializable {
 	private String Date_of_establishment_of_the_Institution;
 	@Column(name = "Years_of_GOLTWOB")
 	private String Years_of_graduation_of_the_last_two_batches;
-	private String isAffiliated;
+	private String isRecognised;
 	private String affiliatingUniversity;
 	private String institutionisRegistereNAD_Document;
 	private String headOfTheInstitution;
@@ -58,12 +58,10 @@ public class PrepareIIQA implements Serializable {
 	private String alternateFacultyEmail;
 	private String alternateFacultyAltenateEmail;
 	private String collegeWebsite;
-	private boolean natureOfCollegeGoverment;
-	private boolean natureOfCollegePrivate;
-	private boolean natureOfCollegeGrantAid;
-	private boolean natureOfCollegeSelfFinancing;
-	private boolean natureOfCollegeConstitiuent;
-	private String isSpecificTypeOfCollege;
+	private String natureOfCollege;//update
+	private String natureOfCollegeDoc;
+	private String univType;
+	private String specificTypeOfUniv;
 	private String dateOfRecognitionByUGC_2f;
 	private String documentOfRecognitionByUGC_2f;
 	private String dateOfRecognitionByUGC_12B;
@@ -96,6 +94,8 @@ public class PrepareIIQA implements Serializable {
 	private String program_Count_Post_Doctoral;
 	private String program_Count_PG_Diploma;
 	private String program_Count_Diploma;
+	private String md;
+	private String ms;
 	private String program_Count_Certificate_Awareness;
 	private String selfDeclaration;
 	private String document_academic_mou_foreign;
@@ -177,12 +177,12 @@ public class PrepareIIQA implements Serializable {
 		Years_of_graduation_of_the_last_two_batches = years_of_graduation_of_the_last_two_batches;
 	}
 
-	public String getIsAffiliated() {
-		return isAffiliated;
+	public String getIsRecognised() {
+		return isRecognised;
 	}
 
-	public void setIsAffiliated(String isAffiliated) {
-		this.isAffiliated = isAffiliated;
+	public void setIsRecognised(String isRecognised) {
+		this.isRecognised = isRecognised;
 	}
 
 	public String getAffiliatingUniversity() {
@@ -377,53 +377,39 @@ public class PrepareIIQA implements Serializable {
 		this.collegeWebsite = collegeWebsite;
 	}
 
-
-	public boolean isNatureOfCollegeGoverment() {
-		return natureOfCollegeGoverment;
+	public String getNatureOfCollege() {
+		return natureOfCollege;
 	}
 
-	public void setNatureOfCollegeGoverment(boolean natureOfCollegeGoverment) {
-		this.natureOfCollegeGoverment = natureOfCollegeGoverment;
+	public void setNatureOfCollege(String natureOfCollege) {
+		this.natureOfCollege = natureOfCollege;
+	}
+	
+	
+	
+	public String getNatureOfCollegeDoc() {
+		return natureOfCollegeDoc;
 	}
 
-	public boolean isNatureOfCollegePrivate() {
-		return natureOfCollegePrivate;
+	public void setNatureOfCollegeDoc(String natureOfCollegeDoc) {
+		this.natureOfCollegeDoc = natureOfCollegeDoc;
 	}
 
-	public void setNatureOfCollegePrivate(boolean natureOfCollegePrivate) {
-		this.natureOfCollegePrivate = natureOfCollegePrivate;
+	public String getUnivType() {
+		return univType;
 	}
 
-	public boolean isNatureOfCollegeGrantAid() {
-		return natureOfCollegeGrantAid;
+	public void setUnivType(String univType) {
+		this.univType = univType;
+	}
+	
+
+	public String getSpecificTypeOfUniv() {
+		return specificTypeOfUniv;
 	}
 
-	public void setNatureOfCollegeGrantAid(boolean natureOfCollegeGrantAid) {
-		this.natureOfCollegeGrantAid = natureOfCollegeGrantAid;
-	}
-
-	public boolean isNatureOfCollegeSelfFinancing() {
-		return natureOfCollegeSelfFinancing;
-	}
-
-	public void setNatureOfCollegeSelfFinancing(boolean natureOfCollegeSelfFinancing) {
-		this.natureOfCollegeSelfFinancing = natureOfCollegeSelfFinancing;
-	}
-
-	public boolean isNatureOfCollegeConstitiuent() {
-		return natureOfCollegeConstitiuent;
-	}
-
-	public void setNatureOfCollegeConstitiuent(boolean natureOfCollegeConstitiuent) {
-		this.natureOfCollegeConstitiuent = natureOfCollegeConstitiuent;
-	}
-
-	public String getIsSpecificTypeOfCollege() {
-		return isSpecificTypeOfCollege;
-	}
-
-	public void setIsSpecificTypeOfCollege(String isSpecificTypeOfCollege) {
-		this.isSpecificTypeOfCollege = isSpecificTypeOfCollege;
+	public void setSpecificTypeOfUniv(String specificTypeOfUniv) {
+		this.specificTypeOfUniv = specificTypeOfUniv;
 	}
 
 	public String getDateOfRecognitionByUGC_2f() {
@@ -689,6 +675,22 @@ public class PrepareIIQA implements Serializable {
 
 	public void setProgram_Count_Certificate_Awareness(String program_Count_Certificate_Awareness) {
 		this.program_Count_Certificate_Awareness = program_Count_Certificate_Awareness;
+	}
+	
+	public String getMd() {
+		return md;
+	}
+
+	public void setMd(String md) {
+		this.md = md;
+	}
+
+	public String getMs() {
+		return ms;
+	}
+
+	public void setMs(String ms) {
+		this.ms = ms;
 	}
 
 	public String getDocument_academic_mou_foreign() {
