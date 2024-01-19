@@ -544,9 +544,9 @@ public class PrepareIIQAController {
 			@RequestParam("pdf") MultipartFile pdf) {
 
 		boolean isDocumentSaved = iiqaService.saveDocumentOfNatureOfCollege(prepareIIqaID, pdf);
-		String fieldName = "stuRevalApplicationsInstDataDoc";
+		String fieldName = "natureOfCollegeDoc";
 		if (isDocumentSaved) {
-			String documentName = fileService.waitUntilDocumentNameIsSet(ExtendedProfileSSR.class, prepareIIqaID, fieldName);
+			String documentName = fileService.waitUntilDocumentNameIsSet(PrepareIIQA.class, prepareIIqaID, fieldName);
 			return ResponseEntity.ok(documentName);
 		} else {
 			return ResponseEntity.badRequest().body("Failed to save document");
